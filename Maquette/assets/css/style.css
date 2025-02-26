@@ -1,0 +1,26 @@
+input[type="range"] {
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 5px;
+  background: linear-gradient(to right, red, yellow, green);
+  outline: none;
+  transition: background 0.3s;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #000;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #000;
+  cursor: pointer;
+}

@@ -1,0 +1,41 @@
+classDiagram
+  class Interview{
+    + int id
+    + date createdAt
+    + date udatedAt
+  }
+
+  class Branch {
+    + int id
+    + string name
+    + date createdAt
+    + date udatedAt
+  }
+
+  class Question {
+    + int id
+    + string title
+    + string description
+    + date createdAt
+    + date udatedAt
+  }
+
+  class Student {
+    + int id
+    + string firstName
+    + string lastName
+    + date createdAt
+    + date udatedAt
+  }
+
+  class Answer {
+    + int id
+    + int score
+    + date createdAt
+    + date udatedAt
+  }
+  Interview "1" -- "1" Student
+  Student "1" -- "1" Answer
+  Interview "*" -- "*" Branch
+  Branch "1" -- "*" Question
+  Question "1" -- "1" Answer
