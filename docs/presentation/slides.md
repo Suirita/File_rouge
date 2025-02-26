@@ -85,8 +85,17 @@
 
 #### **5.2. Analyse technique:**
 
-- Les Base de UI UX
-- One page application (AJAX)
+- <span style="color:green">✔ MySQL </span>
+- <span style="color:green">✔ One Page </span>
+- <span style="color:green">✔ Seeders </span>
+- <span style="color:green">✔ Test </span>
+- <span style="color:green">✔ Filter </span>
+- <span style="color:green">✔ Pagination </span>
+- <span style="color:green">✔ Module Laravel </span>
+- <span style="color:green">✔ i18n </span>
+- <span style="color:green">✔ Request class </span>
+- <span style="color:green">✔ Securite </span>
+- <span style="color:green">✔ Import / Export </span>
 
 |||
 
