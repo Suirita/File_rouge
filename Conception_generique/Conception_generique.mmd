@@ -1,45 +1,18 @@
 %%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#B0E2FF', 'edgeLabelBackground': '#E6F7FF', 'tertiaryColor': '#D9F2FF'}}}%%
 
 classDiagram
-  class User {
+  class Branch {
     + int id
     + string name
-    + string email
-    + string password
     + date createdAt
     + date udatedAt
   }
 
-  class Article {
+  class Question {
     + int id
-    + string title
     + string content
     + date createdAt
     + date udatedAt
   }
 
-  class Category {
-    + int id
-    + string name
-    + date createdAt
-    + date udatedAt
-  }
-
-  class Tag {
-    + int id
-    + string name
-    + date createdAt
-    + date udatedAt
-  }
-
-  class Comment {
-    + int id
-    + int content
-    + date createdAt
-    + date udatedAt
-  }
-
-  Article "*" -- "1" Category
-  Article "*" -- "*" Tag
-  User "1" -- "*" Comment
-  Comment "*" -- "1" Article
+  Branch "*" -- "1" Question
