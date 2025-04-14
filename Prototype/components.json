@@ -4,17 +4,17 @@
   "typescript": true,
   "tailwind": {
     "config": "tailwind.config.js",
-    "css": "resources/css/app.css",
+    "css": "Modules/Core/resources/css/app.css",
     "baseColor": "neutral",
     "cssVariables": true,
     "prefix": ""
   },
   "aliases": {
-    "components": "@/components",
-    "composables": "@/composables",
-    "utils": "@/lib/utils",
-    "ui": "@/components/ui",
-    "lib": "@/lib"
+    "components": "@/Modules/Core/resources/js/components",
+    "composables": "@/Modules/Core/resources/js/composables",
+    "utils": "@/Modules/Core/resources/js/lib/utils",
+    "ui": "@/Modules/Core/resources/js/components/ui",
+    "lib": "@/Modules/Core/resources/js/lib"
   },
   "iconLibrary": "lucide"
 }
