@@ -1,6 +1,6 @@
 ---
 chapter: true
-order: 1
+order: 2
 ---
 
 **Table de matière:**
