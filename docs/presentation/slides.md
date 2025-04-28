@@ -18,7 +18,7 @@
 
 ---
 
-### **2. Contexte du projet:**
+#### **2. Cahier des charges:**
 
 ![Contexte du projet](../assets/img/Contexte_du_projet.jpg)
 
