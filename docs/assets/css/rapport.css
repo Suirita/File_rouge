@@ -5,13 +5,15 @@
   --color-secondary: #1f4d78;
   --color-text: #333;
   --color-muted: #666;
-  --font-family: 'Lora', serif;
+  --font-family: "Lora", serif;
   --font-size-base: 18pt;
   --line-height-base: 1.6;
 }
 
 /* Base resets */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -30,7 +32,7 @@ body {
   width: 21cm;
   padding: 1.5cm;
   margin: 0 auto 1cm;
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   background: #fff;
 }
@@ -42,9 +44,14 @@ body {
 }
 
 @media print {
-  #menu_rapports, #presentation-icon, hr {
+  /* Hide UI elements */
+  #menu_rapports,
+  #presentation-icon,
+  hr {
     display: none;
   }
+
+  /* Reset page container for printing */
   .page {
     margin: 0;
     padding: 0;
@@ -53,28 +60,63 @@ body {
     box-shadow: none;
     page-break-after: auto;
   }
+
+  /* Force image size and avoid breaking across pages */
   .rapport-img {
-    width: 18cm;
+    width: 17cm;
     height: auto;
     page-break-inside: avoid;
   }
+
+  /* Attempt to suppress browser headers/footers in supporting paged media processors */
+  @page {
+    @top-center {
+      content: none;
+    }
+    @bottom-center {
+      content: none;
+    }
+  }
+
+  /* NOTE: In Chrome/Edge, please uncheck 'Headers and footers' under More Settings in the print dialog. */
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--color-primary);
   font-weight: normal;
   line-height: 1.3;
   page-break-after: avoid;
   margin: 2rem 0 1rem;
 }
-h1 { page-break-before: always; font-size: 36pt; }
-h2 { font-size: 28pt; }
-h3 { color: var(--color-secondary); font-size: 24pt; }
-h4 { font-style: italic; font-size: 22pt; }
-h5 { font-size: 20pt; }
-h6 { font-size: 18pt; }
-p, li {
+h1 {
+  page-break-before: always;
+  font-size: 36pt;
+}
+h2 {
+  font-size: 28pt;
+}
+h3 {
+  color: var(--color-secondary);
+  font-size: 24pt;
+}
+h4 {
+  font-style: italic;
+  font-size: 22pt;
+}
+h5 {
+  font-size: 20pt;
+}
+h6 {
+  font-size: 18pt;
+}
+p,
+li {
   margin: 0 0 1.2rem 0;
   text-align: justify;
 }
@@ -89,13 +131,15 @@ hr {
   margin: 1.5cm -1.03cm;
   height: 2cm;
 }
-hr:first-of-type { display: none; }
+hr:first-of-type {
+  display: none;
+}
 
 /* Code blocks */
 code:not(.language-mermaid) {
   border: 1px solid #666;
   border-radius: 3px;
-  padding: .4em .7em;
+  padding: 0.4em 0.7em;
   font-size: 16pt;
 }
 
@@ -107,12 +151,12 @@ code:not(.language-mermaid) {
 }
 #table-de-matiere + ul li a {
   display: block;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   color: var(--color-text);
   text-decoration: none;
   font-weight: bold;
   font-size: 20pt;
-  transition: color .3s;
+  transition: color 0.3s;
 }
 #table-de-matiere + ul li a:hover {
   color: #777;
@@ -126,26 +170,26 @@ code:not(.language-mermaid) {
 #menu_rapports i {
   font-size: 40px;
   color: var(--color-primary);
-  padding-right: .7rem;
-  transition: color .3s;
+  padding-right: 0.7rem;
+  transition: color 0.3s;
 }
-#menu_rapports i:hover { color: #388bd7; }
-#menu_rapports i:visited { color: #0c5294; }
+#menu_rapports i:hover {
+  color: #388bd7;
+}
+#menu_rapports i:visited {
+  color: #0c5294;
+}
 
 /* Images */
-img {
-  display: block;
-  margin: 2rem auto;
-  max-width: 100%;
-  height: auto;
-}
+img,
 .rapport-img {
   display: block;
   margin: 2rem auto;
   max-width: 100%;
   height: auto;
 }
-img + em, pre + p > em {
+img + em,
+pre + p > em {
   display: block;
   margin: 1.2rem auto 2rem;
   text-align: center;
