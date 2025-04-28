@@ -7,7 +7,7 @@ order: 8
 
 ## Carte d’empathie
 
-![Carte d’empathie](../assets/img/Carte_empathie.svg)
+<img src="../assets/img/Carte_empathie_Étudiant.svg" alt="Carte d’empathie" width="1000">
 
 - Ce qu’il dit :
   - « J’ai besoin de comparer facilement les scores entre les étudiants. »
@@ -30,12 +30,12 @@ il existe de nombreuses applications dispersées avec des technologies différen
 
 Création d'un système permettant de faciliter entretiens d'inscription des étudiants.
 
-![Cas d’utilisation](../assets/img/Cas_utilisation.svg)
+<img src="../assets/img/Cas_utilisation.svg" alt="Cas d’utilisation" width="1000">
 
 ## Diagramme de cas d’utilisation sprint 1
 
-![Cas d’utilisation Sprint 1](../assets/img/Sprint_1.svg)
+<img src="../assets/img/Sprint_1.svg" alt="Cas d’utilisation Sprint 1" width="1000">
 
 ## Diagramme de cas d’utilisation sprint 2
 
-![Cas d’utilisation Sprint 2](../assets/img/Sprint_2.svg)
+<img src="../assets/img/Sprint_2.svg" alt="Cas d’utilisation Sprint 2" width="1000">
