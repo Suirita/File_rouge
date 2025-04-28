@@ -9,13 +9,13 @@ Le processus de développement décrit une approche du développement logiciel. 
 
 ## Scrum
 
-![Scrum](../assets/img/Scrum.jpg)
+<img src="../assets/img/Scrum.jpg" alt="Scrum" width="1000">
 
 **Scrum** est un framework de management de projet utilisé pour implémenter la méthode Agile. comme un moyen pour créer de la valeur pour l’entreprise. Les membres de l’équipe travaillent ensemble pour atteindre un but commun. La méthodologie Scrum vise à encourager les échanges entre les membres de l’équipe pour qu’elle puisse apporter de la valeur à l’entreprise.
 
 ## 2TUP
 
-![2TUP](../assets/img/2TUP.png)
+<img src="../assets/img/2TUP.png" alt="2TUP" width="1000">
 
 **2TUP** est un processus de développement logiciel qui implémente le Processus Unifié. Il commence par une étude préliminaire qui consiste essentiellement :
 
@@ -37,6 +37,6 @@ Le processus s’articule ensuite autour de 3 phases essentielles:
 
 ## UX design
 
-![UX design](../assets/img/UX_design.png)
+<img src="../assets/img/UX_design.png" alt="UX design]" width="1000">
 
 **Le UX design** est une approche de l’innovation centrée sur l’humain. C’est une méthode ou un processus de conception globale, centré sur l’utilisateur (ou l’humain), en vue de réaliser des services ou produits innovants.

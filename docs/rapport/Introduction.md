@@ -5,7 +5,7 @@ order: 3
 
 # Introduction
 
-![Introduction](../assets/img/Introduction.jpg)
+<img src="../assets/img/Introduction.jpg" alt="Introduction" width="1000">
 
 L'application _Entretien d'inscription_ fait partie de _Soli-LMS_, une plateforme de gestion de formation puissante et polyvalente conçue pour répondre aux besoins des organismes de formation et des établissements d'enseignement. Elle offre une large gamme de fonctionnalités pour une gestion efficace de l'ensemble du cycle de formation, de la conception du projet à l'évaluation des apprenants.
 

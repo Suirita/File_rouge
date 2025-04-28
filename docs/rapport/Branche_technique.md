@@ -28,4 +28,4 @@ La branche technique se concentre sur les aspects techniques et de développemen
 
 Avant de démarrer la réalisation de notre projet, nous avons mis en place un prototype fonctionnel détaillé
 
-![Conception generique](../assets/img/Conception_generique.svg)
+<img src="../assets/img/Conception_generique.svg" alt="Conception generique" width="300">
