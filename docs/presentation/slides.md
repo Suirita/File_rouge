@@ -26,15 +26,15 @@
 
 ### **3. Methode de travail:**
 
-- 3.1. Scrum
+- 3.1. Méthode Agile
 - 3.2. 2TUP
 - 3.3. UX design
 
 |||
 
-#### **3.1. Scrum:**
+#### **3.1. Méthode Agile:**
 
-![Scrum](../assets/img/Scrum.jpg)
+![Méthode Agile](../assets/img/Scrum.jpg)
 
 |||
 
