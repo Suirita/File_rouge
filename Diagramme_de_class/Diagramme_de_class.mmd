@@ -1,41 +1,44 @@
 classDiagram
-  class Interview{
-    + int id
-    + date createdAt
-    + date udatedAt
-  }
 
-  class Branch {
-    + int id
-    + string name
-    + date createdAt
-    + date udatedAt
-  }
+namespace PkgEntretienInscription {
+  class Inscrit
+  class Formateur
+  class Entretien
+  class ReponseEntretien
+  class Question
+  class ReponseQuestion
+  class EvaluationQuestion
+  class BrancheQuestion
+}
 
-  class Question {
-    + int id
-    + string title
-    + string description
-    + date createdAt
-    + date udatedAt
-  }
+class Entretien{
+  dateEntretien : date
+}
 
-  class Student {
-    + int id
-    + string firstName
-    + string lastName
-    + date createdAt
-    + date udatedAt
-  }
 
-  class Answer {
-    + int id
-    + int score
-    + date createdAt
-    + date udatedAt
-  }
-  Interview "1" -- "1" Student
-  Student "1" -- "1" Answer
-  Interview "*" -- "*" Branch
-  Branch "1" -- "*" Question
-  Question "1" -- "1" Answer
+class EvaluationQuestion{
+  note : float
+  remarques : string
+}
+
+
+namespace PkgTestInscription {
+  class Test
+  class ReponseTest
+}
+
+
+namespace PkgUtilisateurs {
+  class Formateur
+}
+
+
+Inscrit --> "1" ReponseTest
+Inscrit --> "1" ReponseEntretien
+Formateur "*" -- "*" ReponseEntretien
+BrancheQuestion "1" --> "*" Question
+EvaluationQuestion "*" --> "1" ReponseQuestion
+EvaluationQuestion "*" --> "1" Formateur
+ReponseEntretien --> "1" Entretien
+BrancheQuestion --> Entretien
+Question --> ReponseQuestion
