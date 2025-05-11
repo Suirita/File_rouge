@@ -1,0 +1,8 @@
+<script>start("c:\\Solicode_projects\\EFM_backend\\modules\\PkgWidget\\");</script>
+<script>onHasParentDirectory();</script>
+<script>addRow("App","App",1,0,"0 B",1742816290,"3/24/25, 11:38:10 AM");</script>
+<script>addRow("Controllers","Controllers",1,0,"0 B",1742816290,"3/24/25, 11:38:10 AM");</script>
+<script>addRow("Models","Models",1,0,"0 B",1742816290,"3/24/25, 11:38:10 AM");</script>
+<script>addRow("Providers","Providers",1,0,"0 B",1742816290,"3/24/25, 11:38:10 AM");</script>
+<script>addRow("Views","Views",1,0,"0 B",1742816290,"3/24/25, 11:38:10 AM");</script>
+<script>addRow("routes.php","routes.php",0,457,"457 B",1742816290,"3/24/25, 11:38:10 AM");</script>

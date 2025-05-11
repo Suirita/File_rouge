@@ -1,0 +1,101 @@
+{
+    "welcome": "Welcome",
+    "breadcrumbs": {
+        "dashboard": "Dashboard",
+        "branches": "Branches"
+    },
+    "branches": {
+        "title": "Branches",
+        "filterPlaceholder": "select a branch",
+        "filterAll": "All branches",
+        "import": "Import",
+        "export": "Export",
+        "add": "Add a branch",
+        "table": {
+            "name": "Name",
+            "questions": "Questions",
+            "actions": "Actions",
+            "view": "View the branch",
+            "edit": "Edit the branch",
+            "delete": "Delete the branch"
+        }
+    },
+    "createBranchDialog": {
+        "title": "Add a branch",
+        "description": "Add a new branch",
+        "name": "Branch name",
+        "questions": "Questions",
+        "add": "Add the branch",
+        "branchSchema": {
+            "name": "The name is required",
+            "questions": "The question cannot be empty"
+        },
+        "toast": {
+            "success": {
+                "title": "Success!",
+                "description": "Branch added successfully"
+            },
+            "error": {
+                "title": "Error!",
+                "description": "An error occurred"
+            }
+        }
+    },
+    "importBranchDialog": {
+        "title": "Import Branches",
+        "description": "Please select an Excel file",
+        "file": "File",
+        "import": "Import Branches",
+        "toast": {
+            "success": {
+                "title": "Success!",
+                "description": "Importation successful"
+            },
+            "error": {
+                "title": "Error!",
+                "description": "An error occurred"
+            }
+        }
+    },
+    "viewBranchDialog": {
+        "title": "Branch",
+        "description": "Questions",
+        "noQuestions": "No questions available for this branch"
+    },
+    "editBranchDialog": {
+        "title": "Edit Branch",
+        "description": "Please fill in the branch information below",
+        "name": "Branch Name",
+        "questions": "Questions",
+        "edit": "Edit the branch",
+        "branchSchema": {
+            "name": "Name is required",
+            "questions": "Question cannot be empty"
+        },
+        "toast": {
+            "success": {
+                "title": "Success!",
+                "description": "Branch edited successfully"
+            },
+            "error": {
+                "title": "Error!",
+                "description": "An error has occurred"
+            }
+        }
+    },
+    "deleteBranchDialog": {
+        "title": "Delete Branch",
+        "description": "Are you sure you want to delete the branch?",
+        "delete": "Delete the branch",
+        "toast": {
+            "success": {
+                "title": "Success!",
+                "description": "Branch deleted successfully"
+            },
+            "error": {
+                "title": "Error!",
+                "description": "An error has occurred"
+            }
+        }
+    }
+}
