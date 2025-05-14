@@ -6,7 +6,10 @@ import AppLayout from '@/layouts/AppLayout.vue';
 import { type BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/vue3';
 import { Award, BarChart3, CheckCircle, ChevronRight, Clock, UserX } from 'lucide-vue-next';
+import { useI18n } from 'vue-i18n';
 import BarChart from '../components/BarChart.vue';
+
+const { t } = useI18n();
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -53,28 +56,12 @@ const getAbsentRateColor = (rate: number) => {
 const branchLabels = Object.values(props.avgScoreByBranch).map((b) => b.title);
 const branchScores = Object.values(props.avgScoreByBranch).map((b) => b.average_score);
 
-console.log(branchLabels);
-console.log(branchScores);
-
 const formatDate = (iso: string) => {
     const dt = new Date(iso);
     return dt.toLocaleString('fr-FR', {
         dateStyle: 'medium',
         timeStyle: 'short',
     });
-};
-
-// Get status badge color
-const getStatusColor = (status: string) => {
-    const statusMap: Record<string, string> = {
-        completed: 'bg-emerald-100 text-emerald-800',
-        scheduled: 'bg-blue-100 text-blue-800',
-        cancelled: 'bg-rose-100 text-rose-800',
-        absent: 'bg-amber-100 text-amber-800',
-        pending: 'bg-gray-100 text-gray-800',
-    };
-
-    return statusMap[status.toLowerCase()] || 'bg-gray-100 text-gray-800';
 };
 </script>
 
@@ -178,24 +165,24 @@ const getStatusColor = (status: string) => {
                         <ChevronRight class="h-3 w-3" />
                     </Button>
                 </CardHeader>
-                <CardContent class="p-0">
+                <CardContent>
                     <Table>
                         <TableHeader>
                             <TableRow>
-                                <TableHead class="text-xs">Candidate</TableHead>
-                                <TableHead class="text-xs">Status</TableHead>
-                                <TableHead class="text-xs">Date</TableHead>
+                                <TableHead>Candidate</TableHead>
+                                <TableHead class="text-center">Status</TableHead>
+                                <TableHead class="text-right">Date</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
                             <TableRow v-for="interview in lastInterviews" :key="interview.id" class="hover:bg-muted/50">
                                 <TableCell class="font-medium">{{ interview.candidate.name }}</TableCell>
-                                <TableCell>
-                                    <span :class="`rounded-full px-2 py-1 text-xs font-medium ${getStatusColor(interview.status)}`">
+                                <TableCell class="text-center">
+                                    <span class="rounded-full bg-green-500 px-2 py-1 text-xs font-medium">
                                         {{ interview.status }}
                                     </span>
                                 </TableCell>
-                                <TableCell class="text-xs text-muted-foreground">{{ formatDate(interview.updated_at) }}</TableCell>
+                                <TableCell class="text-right text-xs text-muted-foreground">{{ formatDate(interview.updated_at) }}</TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>

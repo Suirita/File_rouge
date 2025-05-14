@@ -4,13 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQuestionEvaluationsTable extends Migration
+class CreateEvaluationsTable extends Migration
 {
+    /**
+     * Run the migrations.
+     */
     public function up()
     {
-        Schema::create('question_evaluations', function (Blueprint $table) {
+        Schema::create('evaluations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('question_response_id')->constrained('question_responses')->cascadeOnDelete();
+            $table->foreignId('answer_id')->constrained('answers')->cascadeOnDelete();
             $table->foreignId('trainer_id')->constrained('trainers')->cascadeOnDelete();
             $table->float('score');
             $table->text('remarks')->nullable();
@@ -18,8 +21,11 @@ class CreateQuestionEvaluationsTable extends Migration
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down()
     {
-        Schema::dropIfExists('question_evaluations');
+        Schema::dropIfExists('evaluations');
     }
 }

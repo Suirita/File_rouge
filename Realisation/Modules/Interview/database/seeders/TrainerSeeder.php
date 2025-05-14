@@ -1,20 +1,23 @@
 <?php
 
-namespace  Modules\Interview\database\seeders;
+namespace Modules\Interview\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use Modules\Interview\App\Models\Trainer;
 
 class TrainerSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('trainers')->insert([
-            ['name' => 'Alice Martin', 'email' => 'alice@example.com', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Bob Dupont',   'email' => 'bob@example.com',   'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Charlie Durand', 'email' => 'charlie@example.com', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Dana Leroy',     'email' => 'dana@example.com',    'created_at' => now(), 'updated_at' => now()],
+        $trainers = [
+            ['name' => 'Alice Martin',   'email' => 'alice@example.com'],
+            ['name' => 'Bob Dupont',      'email' => 'bob@example.com'],
+            ['name' => 'Charlie Durand',  'email' => 'charlie@example.com'],
+            ['name' => 'Dana Leroy',      'email' => 'dana@example.com'],
+        ];
 
-        ]);
+        foreach ($trainers as $data) {
+            Trainer::create($data);
+        }
     }
 }

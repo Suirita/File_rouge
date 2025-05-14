@@ -3,193 +3,33 @@
 namespace  Modules\Interview\database\seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
+use Modules\Interview\App\Models\Participation;
 
 class ParticipationSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('participations')->insert([
-            [
-                'candidate_id'   => 1,
-                'interview_id'   => 1,
-                'trainer_id'     => 1,
-                'status'         => 'completed',
-                'report'         => 'Excellent communication skills.',
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-            [
-                'candidate_id'   => 2,
-                'interview_id'   => 1,
-                'trainer_id'     => 2,
-                'status'         => 'pending',
-                'report'         => null,
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-            [
-                'candidate_id'   => 3,
-                'interview_id'   => 1,
-                'trainer_id'     => 1,
-                'status'         => 'completed',
-                'report'         => 'Excellent communication skills.',
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-            [
-                'candidate_id'   => 4,
-                'interview_id'   => 1,
-                'trainer_id'     => 2,
-                'status'         => 'pending',
-                'report'         => null,
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-            [
-                'candidate_id'   => 5,
-                'interview_id'   => 1,
-                'trainer_id'     => 1,
-                'status'         => 'completed',
-                'report'         => 'Excellent communication skills.',
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-            [
-                'candidate_id'   => 6,
-                'interview_id'   => 1,
-                'trainer_id'     => 2,
-                'status'         => 'pending',
-                'report'         => null,
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-            [
-                'candidate_id'   => 7,
-                'interview_id'   => 1,
-                'trainer_id'     => 1,
-                'status'         => 'completed',
-                'report'         => 'Excellent communication skills.',
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-            [
-                'candidate_id'   => 8,
-                'interview_id'   => 1,
-                'trainer_id'     => 2,
-                'status'         => 'pending',
-                'report'         => null,
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-            [
-                'candidate_id'   => 9,
-                'interview_id'   => 1,
-                'trainer_id'     => 1,
-                'status'         => 'completed',
-                'report'         => 'Excellent communication skills.',
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-            [
-                'candidate_id'   => 10,
-                'interview_id'   => 1,
-                'trainer_id'     => 2,
-                'status'         => 'pending',
-                'report'         => null,
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-            [
-                'candidate_id'   => 11,
-                'interview_id'   => 1,
-                'trainer_id'     => 1,
-                'status'         => 'completed',
-                'report'         => 'Excellent communication skills.',
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-            [
-                'candidate_id'   => 12,
-                'interview_id'   => 1,
-                'trainer_id'     => 2,
-                'status'         => 'pending',
-                'report'         => null,
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-            [
-                'candidate_id'   => 13,
-                'interview_id'   => 1,
-                'trainer_id'     => 1,
-                'status'         => 'completed',
-                'report'         => 'Excellent communication skills.',
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-            [
-                'candidate_id'   => 14,
-                'interview_id'   => 1,
-                'trainer_id'     => 2,
-                'status'         => 'pending',
-                'report'         => null,
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-            [
-                'candidate_id'   => 15,
-                'interview_id'   => 1,
-                'trainer_id'     => 1,
-                'status'         => 'absent',
-                'report'         => 'Excellent communication skills.',
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-            [
-                'candidate_id'   => 16,
-                'interview_id'   => 1,
-                'trainer_id'     => 2,
-                'status'         => 'pending',
-                'report'         => null,
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-            [
-                'candidate_id'   => 17,
-                'interview_id'   => 1,
-                'trainer_id'     => 1,
-                'status'         => 'pending',
-                'report'         => 'Excellent communication skills.',
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-            [
-                'candidate_id'   => 18,
-                'interview_id'   => 1,
-                'trainer_id'     => 2,
-                'status'         => 'pending',
-                'report'         => null,
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-            [
-                'candidate_id'   => 19,
-                'interview_id'   => 1,
-                'trainer_id'     => 1,
-                'status'         => 'pending',
-                'report'         => 'Excellent communication skills.',
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-            [
-                'candidate_id'   => 20,
-                'interview_id'   => 1,
-                'trainer_id'     => 2,
-                'status'         => 'pending',
-                'report'         => null,
-                'created_at'     => now(),
-                'updated_at'     => now(),
-            ],
-        ]);
+        // 8 completed, 11 pending, 1 absent (total 20)
+        $statuses = Collection::make()
+            ->push(...array_fill(0, 8, 'completed'))
+            ->push(...array_fill(0, 11, 'pending'))
+            ->push('absent')
+            ->values();
+
+        // Map into an array of row-data
+        $participations = $statuses->map(function ($status, $i) {
+            return [
+                'candidate_id' => $i + 1,
+                'interview_id' => 1,
+                'status'       => $status,
+                'created_at'   => now(),
+                'updated_at'   => now(),
+            ];
+        })->toArray();
+
+        foreach ($participations as $participation) {
+            Participation::insert($participation);
+        }
     }
 }

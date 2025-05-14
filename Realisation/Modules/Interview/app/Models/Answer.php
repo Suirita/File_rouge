@@ -5,9 +5,9 @@ namespace Modules\Interview\app\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class QuestionResponse extends Model
+class Answer extends Model
 {
-    protected $fillable = ['question_id', 'participation_id', 'answer'];
+    protected $fillable = ['question_id', 'participation_id'];
 
     public function question(): BelongsTo
     {
@@ -21,6 +21,6 @@ class QuestionResponse extends Model
 
     public function evaluation()
     {
-        return $this->hasOne(QuestionEvaluation::class);
+        return $this->hasOne(Evaluation::class);
     }
 }

@@ -10,7 +10,7 @@ class CreateInterviewsTable extends Migration
     {
         Schema::create('interviews', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
+            $table->string('title');
             $table->timestamps();
         });
     }

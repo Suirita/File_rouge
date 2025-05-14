@@ -12,9 +12,7 @@ class CreateParticipationsTable extends Migration
             $table->id();
             $table->foreignId('candidate_id')->constrained('candidates')->cascadeOnDelete();
             $table->foreignId('interview_id')->constrained('interviews')->cascadeOnDelete();
-            $table->foreignId('trainer_id')->constrained('trainers')->cascadeOnDelete();
             $table->string('status')->default('pending');
-            $table->text('report')->nullable();
             $table->timestamps();
         });
     }

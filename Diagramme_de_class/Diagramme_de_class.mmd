@@ -1,50 +1,76 @@
 classDiagram
-  %% Packages
-  %% Utilisateurs
-  class Formateur {
-    +id: ID
-    +name: String
-    +email: String
-  }
 
-  %% EntretienInscription
-  class Inscrit {
-    +id: ID
-    +name: String
-    +email: String
-  }
-  class Entretien {
-    +id: ID
-    +dateEntretien: Date
-  }
-  class EntretienParticipation {
-    +status: String
-    +report: String
-  }
-  class BrancheQuestion {
-    +id: ID
-    +title: String
-  }
-  class Question {
-    +id: ID
-    +text: String
-  }
-  class ReponseQuestion {
-    +id: ID
-    +answer: String
-  }
-  class EvaluationQuestion {
-    +note: Float
-    +remarques: String
-  }
+namespace PkgEntretienInscription {
+  class Entretien
+  class Participation
+  class Branche
+  class Question
+  class Reponse
+  class Evaluation
+}
 
-  %% Associations
-  Inscrit "1" --> "0..*" EntretienParticipation : attends
-  Entretien "1" --> "0..*" EntretienParticipation : has
-  EntretienParticipation "*" --> "1" Formateur : evaluatedBy
+class Entretien {
+  id : ID
+  title: string
+  created_at : date
+  updated_at : date
+}
 
-  Entretien "1" --> "0..*" BrancheQuestion : contains
-  BrancheQuestion "1" --> "0..*" Question : includes
-  Question "1" --> "0..*" ReponseQuestion : generates
-  ReponseQuestion "0..1" --> "1" EvaluationQuestion : evaluatedBy
-  EvaluationQuestion "1" --> "1" Formateur : by
+class Participation {
+  id : ID
+  status : string
+  created_at : date
+  updated_at : date
+}
+
+class Branche {
+  id : ID
+  title : string
+}
+
+class Question {
+  id : ID
+  text : string
+}
+
+class Reponse {
+  id : ID
+  created_at : date
+  updated_at : date
+}
+
+class Evaluation{
+  id : ID
+  note : float
+  remarques : string
+}
+
+namespace PkgTestInscription {
+  class Inscrit
+}
+
+class Inscrit {
+  id : ID
+  nom : string
+}
+
+namespace PkgUtilisateurs {
+  class Formateur
+}
+
+class Formateur {
+  id : ID
+  nom : string
+  email : string
+}
+
+
+Inscrit "1" --> "*" Participation
+Participation "1" --> "*" Reponse
+Formateur "*" -- "*" Participation
+Branche "1" --> "*" Question
+Reponse "1" --> "1" Evaluation
+Formateur "1" --> "*" Evaluation
+Entretien "1" --> "*" Participation
+Branche "*" -- "*" Entretien
+Question "1" --> "*" Reponse

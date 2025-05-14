@@ -3,17 +3,35 @@
 namespace  Modules\Interview\database\seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use Modules\Interview\app\Models\Branch;
 
 class BranchSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('branches')->insert([
-            ['interview_id' => 1, 'title' => 'French', 'created_at' => now(), 'updated_at' => now()],
-            ['interview_id' => 1, 'title' => 'English', 'created_at' => now(), 'updated_at' => now()],
-            ['interview_id' => 1, 'title' => 'SoftSkills', 'created_at' => now(), 'updated_at' => now()],
-            ['interview_id' => 1, 'title' => 'Programming', 'created_at' => now(), 'updated_at' => now()],
-        ]);
+        $branches = [
+            [
+                'title' => 'French'
+            ],
+            [
+                'title' => 'English'
+            ],
+            [
+                'title' => 'Soft Skills'
+            ],
+            [
+                'title' => 'Teamwork'
+            ],
+            [
+                'title' => 'Front end'
+            ],
+            [
+                'title' => 'Back end'
+            ]
+        ];
+
+        foreach ($branches as $branch) {
+            Branch::create($branch);
+        }
     }
 }

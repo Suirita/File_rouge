@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Candidate extends Model
 {
-    protected $fillable = ['name', 'email'];
+    protected $fillable = ['name'];
 
     public function participations(): HasMany
     {

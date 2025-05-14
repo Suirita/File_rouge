@@ -5,22 +5,22 @@ namespace Modules\Interview\app\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class QuestionEvaluation extends Model
+class Evaluation extends Model
 {
     protected $fillable = [
-        'question_response_id',
+        'answer_id',
         'trainer_id',
         'score',
         'remarks',
     ];
 
-    public function response(): BelongsTo
+    public function answer(): BelongsTo
     {
-        return $this->belongsTo(QuestionResponse::class, 'question_response_id');
+        return $this->belongsTo(Answer::class);
     }
 
     public function trainer(): BelongsTo
     {
-        return $this->belongsTo(Trainer::class);
+        return $this->BelongsTo(Trainer::class);
     }
 }

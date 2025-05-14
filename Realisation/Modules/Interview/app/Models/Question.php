@@ -15,8 +15,8 @@ class Question extends Model
         return $this->belongsTo(Branch::class);
     }
 
-    public function responses(): HasMany
+    public function answers(): HasMany
     {
-        return $this->hasMany(QuestionResponse::class);
+        return $this->hasMany(Answer::class);
     }
 }
