@@ -4,14 +4,22 @@ import NavUser from '@/components/NavUser.vue';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
-import { LayoutGrid } from 'lucide-vue-next';
+import { LayoutGrid, Newspaper } from 'lucide-vue-next';
+import { useI18n } from 'vue-i18n';
 import AppLogo from './AppLogo.vue';
+
+const { t } = useI18n();
 
 const mainNavItems: NavItem[] = [
     {
-        title: 'Tableau de bord',
+        title: t('sidebar.dashboard'),
         href: '/dashboard',
         icon: LayoutGrid,
+    },
+    {
+        title: t('sidebar.interviews'),
+        href: '/dashboard/interview',
+        icon: Newspaper,
     },
 ];
 </script>

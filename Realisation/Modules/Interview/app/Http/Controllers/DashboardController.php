@@ -2,24 +2,28 @@
 
 namespace Modules\Interview\app\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Inertia\Inertia;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Modules\Interview\app\Http\Services\DashboardService;
 
 class DashboardController extends Controller
 {
     public function __construct(private DashboardService $dashboard) {}
 
-    public function index()
+    public function index(Request $request)
     {
-        $metrics = $this->dashboard->getMetrics();
-        $avgScoreByBranch = $this->dashboard->getAvgScoreByBranch();
-        $lastInterviews = $this->dashboard->getLastInterviews();
+        $year = $request->input('year', now()->year);
+
+        $metrics          = $this->dashboard->getMetrics($year);
+        $avgScoreByBranch = $this->dashboard->getAvgScoreByBranch($year);
+        $lastInterviews   = $this->dashboard->getLastInterviews($year);
 
         return Inertia::render('Dashboard', [
-            'metrics'             => $metrics,
-            'avgScoreByBranch'  => $avgScoreByBranch,
-            'lastInterviews' => $lastInterviews,
+            'metrics'            => $metrics,
+            'avgScoreByBranch'   => $avgScoreByBranch,
+            'lastInterviews'     => $lastInterviews,
+            'selectedYear'       => (string) $year,
         ]);
     }
 }

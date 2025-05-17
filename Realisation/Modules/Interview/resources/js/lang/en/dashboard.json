@@ -1,0 +1,32 @@
+{
+    "breadcrumbs": {
+        "dashboard": "Dashboard"
+    },
+    "filterByYear": "Filter by year:",
+    "kpi": {
+        "completedParticipations": {
+            "CompletedParticipations": "Completed Participations",
+            "of": "of",
+            "participationsRemaining": "participations remaining"
+        },
+        "averageScore": {
+            "averageScore": "Average Score",
+            "basedOn": "Based on",
+            "completedParticipations": "completed participations"
+        },
+        "absentRate": {
+            "absentCandidatesRate": "Absent Candidates Rate",
+            "candidatesMissedTheirParticipations": "candidates missed their participations"
+        }
+    },
+    "latestParticipations": {
+        "latestParticipations": "Latest Participations",
+        "viewAll": "View All",
+        "table": {
+            "candidate": "Candidate",
+            "status": "Status",
+            "date": "Date"
+        }
+    },
+    "averageScoreByBranch": "Note Moyenne par Branche"
+}
