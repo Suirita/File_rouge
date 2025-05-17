@@ -8,63 +8,71 @@ use Modules\Interview\app\Models\Evaluation;
 
 class DashboardService
 {
-  public function getMetrics(): array
-  {
-    $total = Participation::count();
-    $completed = Participation::where('status', 'completed')->count();
-    $avgScore = Evaluation::avg('score') ?? 0;
-    $AbsentRate = Participation::where('status', 'absent')->count() / $total * 100;
+    public function getMetrics(int $year): array
+    {
+        $query = Participation::whereYear('created_at', $year);
 
-    return [
-      'totalInterviews'      => $total,
-      'completedInterviews'  => $completed,
-      'averageScore'         => round($avgScore, 1),
-      'AbsentRate'       => $AbsentRate,
-    ];
-  }
-
-  public function getAvgScoreByBranch(): array
-  {
-    $branches = Branch::with([
-      'questions.answers.evaluation',
-    ])->get();
-
-    return $branches
-      ->mapWithKeys(function (Branch $branch) {
-        $scores = $branch->questions
-          ->flatMap(
-            fn($q) =>
-            $q->answers
-              ->pluck('evaluation.score')
-              ->filter()
-          );
-
-        $avg = $scores->isEmpty()
-          ? null
-          : $scores->avg();
+        $total     = $query->count();
+        $completed = (clone $query)->where('status', 'completed')->count();
+        $absent    = (clone $query)->where('status', 'absent')->count();
+        $avgScore  = Evaluation::whereYear('created_at', $year)->avg('score') ?? 0;
 
         return [
-          $branch->id => [
-            'title'         => $branch->title,
-            'average_score' => $avg,
-          ],
+            'totalInterviews'     => $total,
+            'completedInterviews' => $completed,
+            'averageScore'        => round($avgScore, 1),
+            'AbsentRate'          => $total ? $absent / $total * 100 : 0,
         ];
-      })
-      ->toArray();
-  }
+    }
+
+
+    public function getAvgScoreByBranch(int $year): array
+    {
+        // Eager-load only evaluations from the given year
+        $branches = Branch::with([
+            'questions.answers.evaluation' => function ($query) use ($year) {
+                $query->whereYear('created_at', $year);
+            },
+        ])->get();
+
+        return $branches
+            ->mapWithKeys(function (Branch $branch) {
+                // Collect all scores from the filtered evaluations
+                $scores = $branch->questions
+                    ->flatMap(
+                        fn($question) =>
+                        $question
+                            ->answers
+                            ->pluck('evaluation.score')
+                            ->filter() // drop nulls
+                    );
+
+                $avg = $scores->isEmpty() ? null : $scores->avg();
+
+                return [
+                    $branch->id => [
+                        'title'         => $branch->title,
+                        'average_score' => $avg !== null ? round($avg, 1) : null,
+                    ],
+                ];
+            })
+            ->toArray();
+    }
 
 
 
 
-  public function getLastInterviews(): array
-  {
-    $lastInterviews = Participation::with('interview', 'candidate')
-      ->where('status', 'completed')
-      ->orderBy('date', 'desc')
-      ->limit(5)
-      ->get();
+
+    public function getLastInterviews(int $year): array
+    {
+        $lastInterviews = Participation::with('interview', 'candidate')
+            ->where('status', 'completed')
+            ->whereYear('created_at', $year)
+            ->orderBy('created_at', 'desc')
+            ->limit(5)
+            ->get();
 
 
-    return $lastInterviews->toArray();
-  }
+        return $lastInterviews->toArray();
+    }
 }
