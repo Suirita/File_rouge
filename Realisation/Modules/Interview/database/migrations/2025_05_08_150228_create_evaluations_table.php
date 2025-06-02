@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEvaluationsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateEvaluationsTable extends Migration
     {
         Schema::create('evaluations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('answer_id')->constrained('answers')->cascadeOnDelete();
-            $table->foreignId('trainer_id')->constrained('trainers')->cascadeOnDelete();
+            $table->foreignId('evaluator_id')->constrained('evaluators');
+            $table->foreignId('interview_id')->constrained('interviews')->cascadeOnDelete();
+            $table->foreignId('question_id')->constrained('questions');
             $table->float('score');
             $table->text('remarks')->nullable();
             $table->timestamps();
@@ -28,4 +29,4 @@ class CreateEvaluationsTable extends Migration
     {
         Schema::dropIfExists('evaluations');
     }
-}
+};

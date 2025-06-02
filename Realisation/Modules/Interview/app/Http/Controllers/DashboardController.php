@@ -13,17 +13,19 @@ class DashboardController extends Controller
 
     public function index(Request $request)
     {
-        $year = $request->input('year', now()->year);
+        $selectedYear = $request->input('selectedYear', 2024);
 
-        $metrics          = $this->dashboard->getMetrics($year);
-        $avgScoreByBranch = $this->dashboard->getAvgScoreByBranch($year);
-        $lastInterviews   = $this->dashboard->getLastInterviews($year);
+        $metrics          = $this->dashboard->getMetrics($selectedYear);
+        $avgScoreByQuestionType = $this->dashboard->getAvgScoreByQuestionType($selectedYear);
+        $years            = $this->dashboard->getYears();
+        $lastInterviews   = $this->dashboard->getLastInterviews($selectedYear);
 
         return Inertia::render('Dashboard', [
             'metrics'            => $metrics,
-            'avgScoreByBranch'   => $avgScoreByBranch,
+            'avgScoreByQuestionType'   => $avgScoreByQuestionType,
             'lastInterviews'     => $lastInterviews,
-            'selectedYear'       => (string) $year,
+            'years'             => $years,
+            'selectedYear'       => (string) $selectedYear,
         ]);
     }
 }

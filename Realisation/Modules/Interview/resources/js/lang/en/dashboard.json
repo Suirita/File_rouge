@@ -4,29 +4,30 @@
     },
     "filterByYear": "Filter by year:",
     "kpi": {
-        "completedParticipations": {
-            "CompletedParticipations": "Completed Participations",
+        "completedInterviews": {
+            "completedInterviews": "Completed Interviews",
             "of": "of",
-            "participationsRemaining": "participations remaining"
+            "interviewsRemaining": "interviews remaining"
         },
         "averageScore": {
             "averageScore": "Average Score",
             "basedOn": "Based on",
-            "completedParticipations": "completed participations"
+            "completedInterviews": "completed interviews"
         },
         "absentRate": {
             "absentCandidatesRate": "Absent Candidates Rate",
-            "candidatesMissedTheirParticipations": "candidates missed their participations"
+            "candidatesMissedTheirInterview": "candidates missed their interview"
         }
     },
-    "latestParticipations": {
-        "latestParticipations": "Latest Participations",
+    "latestInterviews": {
+        "latestInterviews": "Latest Interviews",
         "viewAll": "View All",
         "table": {
             "candidate": "Candidate",
             "status": "Status",
+            "score": "Score",
             "date": "Date"
         }
     },
-    "averageScoreByBranch": "Note Moyenne par Branche"
+    "averageScoreByQuestionType": "Average Score by Question Type"
 }

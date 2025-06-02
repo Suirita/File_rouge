@@ -8,15 +8,15 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Question extends Model
 {
-    protected $fillable = ['branch_id', 'text'];
+    protected $fillable = ['type_id', 'title'];
 
-    public function branch(): BelongsTo
+    public function type(): BelongsTo
     {
-        return $this->belongsTo(Branch::class);
+        return $this->belongsTo(Type::class);
     }
 
-    public function answers(): HasMany
+    public function evaluations(): HasMany
     {
-        return $this->hasMany(Answer::class);
+        return $this->hasMany(Evaluation::class);
     }
 }

@@ -1,0 +1,110 @@
+{
+    "breadcrumbs": {
+        "questions": "Questions"
+    },
+    "title": "Questions",
+    "searchPlaceholder": "Rechercher by Types",
+    "add": "Ajouter des questions",
+    "import": "Importer des questions",
+    "export": "Exporter des questions",
+    "table": {
+        "type": "Types",
+        "questions": "Questions",
+        "actions": "Actions",
+        "actionsPopover": {
+            "view": "Voir",
+            "edit": "Modifier",
+            "delete": "Supprimer"
+        }
+    },
+    "noTypes": "Aucune type trouvée",
+    "noTypesDescription": "Vous pouvez créer de nouvelles questions en cliquant sur le bouton « Ajouter des questions »",
+    "importTypePopover": {
+        "title": "Importer des questions",
+        "description": "Importer des questions à partir d'un fichier",
+        "file": "Fichier",
+        "import": "Importer",
+        "toast": {
+            "success": {
+                "title": "Questions importées avec succès",
+                "description": "Les questions ont été importées avec succès"
+            },
+            "error": {
+                "title": "Erreur lors de l'importation des questions",
+                "description": "Une erreur s'est produite lors de l'importation des questions"
+            }
+        }
+    },
+    "createQuestionsDialog": {
+        "title": "Créer des questions",
+        "type": "Type",
+        "questions": "Questions",
+        "add": "Ajouter",
+        "toast": {
+            "success": {
+                "title": "Questions ajoutées avec succès",
+                "description": "Les questions ont été ajoutées avec succès"
+            },
+            "error": {
+                "title": "Erreur lors de l'ajout de questions",
+                "description": "Une erreur s'est produite lors de l'ajout de questions"
+            }
+        },
+        "questionSchema": {
+            "type": {
+                "min": "Le type est requis",
+                "max": "Le type est trop long"
+            },
+            "questions": {
+                "min": "Les questions sont requises",
+                "max": "question est trop long"
+            }
+        }
+    },
+    "viewQuestionsDialog": {
+        "title": "Voir les questions de type",
+        "questions": "Les questions",
+        "noQuestions": "Aucune question trouvée"
+    },
+    "editQuestionsDialog": {
+        "title": "Modifier les questions de type",
+        "type": "Type",
+        "questions": "Questions",
+        "edit": "Modifier",
+        "toast": {
+            "success": {
+                "title": "Type modifiée avec succès",
+                "description": "La type a été modifiée avec succès"
+            },
+            "error": {
+                "title": "Erreur lors de la modification de questions",
+                "description": "Une erreur s'est produite lors de la modification de questions"
+            }
+        },
+        "questionSchema": {
+            "type": {
+                "min": "Le type est requis",
+                "max": "Le type est trop long"
+            },
+            "questions": {
+                "min": "Les questions sont requises",
+                "max": "question est trop long"
+            }
+        }
+    },
+    "deleteQuestionsDialog": {
+        "title": "Supprimer des questions",
+        "description": "Êtes-vous sûr de vouloir supprimer ces questions?",
+        "delete": "Supprimer",
+        "toast": {
+            "success": {
+                "title": "Questions supprimées avec succès",
+                "description": "Les questions ont été supprimées avec succès"
+            },
+            "error": {
+                "title": "Erreur lors de la suppression des questions",
+                "description": "Une erreur s'est produite lors de la suppression des questions"
+            }
+        }
+    }
+}

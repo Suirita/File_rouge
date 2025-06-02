@@ -37,7 +37,7 @@ const chartOptions = ref({
     scales: {
         y: {
             beginAtZero: true,
-            suggestedMax: props.maxScore ?? 5,
+            suggestedMax: 10,
             ticks: {
                 stepSize: 1,
             },

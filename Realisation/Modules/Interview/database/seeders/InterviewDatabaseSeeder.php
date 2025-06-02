@@ -6,22 +6,20 @@ use Illuminate\Database\Seeder;
 
 class InterviewDatabaseSeeder extends Seeder
 {
-  /**
-   * Run the database seeds.
-   */
-  public function run(): void
-  {
-    $this->call([
-      TrainerSeeder::class,
-      CandidateSeeder::class,
-      InterviewSeeder::class,
-      BranchSeeder::class,
-      QuestionSeeder::class,
-      ParticipationSeeder::class,
-      AnswerSeeder::class,
-      TrainerParticipationSeeder::class,
-      EvaluationSeeder::class,
-      InterviewBranchSeeder::class,
-    ]);
-  }
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $this->call([
+            CandidateSeeder::class,
+            EvaluatorSeeder::class,
+            TemplateSeeder::class,
+            InterviewSeeder::class,
+            TypeSeeder::class,
+            QuestionSeeder::class,
+            TemplateTypeSeeder::class,
+            EvaluationSeeder::class,
+        ]);
+    }
 }

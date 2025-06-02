@@ -1,0 +1,110 @@
+{
+    "breadcrumbs": {
+        "questions": "Questions"
+    },
+    "title": "Questions",
+    "searchPlaceholder": "Search per types",
+    "add": "Add questions",
+    "import": "Import questions",
+    "export": "Export questions",
+    "table": {
+        "type": "Types",
+        "questions": "Questions",
+        "actions": "Actions",
+        "actionsPopover": {
+            "view": "View",
+            "edit": "Edit",
+            "delete": "Delete"
+        }
+    },
+    "noTypes": "No types found",
+    "noTypesDescription": "You can create a new questions by clicking the 'Add questions' button",
+    "importQuestionsPopover": {
+        "title": "Import questions",
+        "description": "Import questions from a file",
+        "file": "File",
+        "import": "Import",
+        "toast": {
+            "success": {
+                "title": "Questions imported successfully",
+                "description": "The questions have been imported successfully"
+            },
+            "error": {
+                "title": "Error importing questions",
+                "description": "An error occurred while importing the questions"
+            }
+        }
+    },
+    "createQuestionsDialog": {
+        "title": "Create a questions",
+        "type": "Type",
+        "questions": "Questions",
+        "add": "Add",
+        "toast": {
+            "success": {
+                "title": "Questions added successfully",
+                "description": "The questions has been added successfully"
+            },
+            "error": {
+                "title": "Error adding questions",
+                "description": "An error occurred while adding the questions"
+            }
+        },
+        "questionSchema": {
+            "type": {
+                "min": "The type is required",
+                "max": "The type is too long"
+            },
+            "questions": {
+                "min": "At least one question is required",
+                "max": "question is too long"
+            }
+        }
+    },
+    "viewQuestionsDialog": {
+        "title": "View questions of type",
+        "questions": "Questions",
+        "noQuestions": "No questions found"
+    },
+    "editQuestionsDialog": {
+        "title": "Edit questions of type",
+        "type": "Type",
+        "questions": "Questions",
+        "edit": "Edit",
+        "toast": {
+            "success": {
+                "title": "Questions edited successfully",
+                "description": "The questions have been edited successfully"
+            },
+            "error": {
+                "title": "Error editing questions",
+                "description": "An error occurred while editing the questions"
+            }
+        },
+        "questionSchema": {
+            "type": {
+                "min": "The type is required",
+                "max": "The type is too long"
+            },
+            "questions": {
+                "min": "At least one question is required",
+                "max": "question is too long"
+            }
+        }
+    },
+    "deleteQuestionsDialog": {
+        "title": "Delete questions",
+        "description": "Are you sure you want to delete these questions?",
+        "delete": "Delete",
+        "toast": {
+            "success": {
+                "title": "Questions deleted successfully",
+                "description": "The questions have been deleted successfully"
+            },
+            "error": {
+                "title": "Error deleting questions",
+                "description": "An error occurred while deleting the questions"
+            }
+        }
+    }
+}

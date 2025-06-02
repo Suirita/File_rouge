@@ -1,0 +1,118 @@
+{
+    "breadcrumbs": {
+        "template": "Modèles d'entretien"
+    },
+    "title": "Modèles d'entretien",
+    "filterYearPlaceholder": "Filtrer par année",
+    "allYears": "Toutes les années",
+    "table": {
+        "title": "Modèle",
+        "types": "Types",
+        "createdAt": "Créé le",
+        "actions": "Actions",
+        "actionsPopover": {
+            "view": "Voir",
+            "edit": "Modifier",
+            "delete": "Supprimer"
+        }
+    },
+    "add": "Ajouter un modèle",
+    "import": "Importer des modèles",
+    "export": "Exporter des modèles",
+    "noItems": "Aucun modèle trouvé",
+    "noItemsDescription": "Vous pouvez créer un nouvel modèle en cliquant sur le bouton 'Ajouter un modèle'",
+    "importTemplatePopover": {
+        "title": "Importer des modèles",
+        "description": "Importer des modèles depuis un fichier",
+        "file": "Fichier",
+        "import": "Importer",
+        "toast": {
+            "success": {
+                "title": "Modèles importés avec succès",
+                "description": "Les modèles ont été importés avec succès"
+            },
+            "error": {
+                "title": "Erreur d'importation des modèles",
+                "description": "Une erreur s'est produite lors de l'importation des modèles"
+            }
+        }
+    },
+    "createTemplateDialog": {
+        "title": "Créer un modèle",
+        "description": "Créer un nouvel modèle",
+        "types": "Types",
+        "templateTitle": "Titre",
+        "typeSelectPlaceholder": "Choisir une type",
+        "typeSelectLabel": "Types",
+        "add": "Ajouter",
+        "toast": {
+            "success": {
+                "title": "Modèle ajouté avec succès",
+                "description": "L'modèle a été ajouté avec succès"
+            },
+            "error": {
+                "title": "Erreur d'ajout d'modèle",
+                "description": "Une erreur s'est produite lors de l'ajout de l'modèle"
+            }
+        },
+        "templateSchema": {
+            "title": {
+                "min": "Le titre est requis",
+                "max": "Le titre ne doit pas dépasser 20 caractères"
+            },
+            "types": {
+                "arrayMin": "Au moins une type est requise",
+                "min": "Les types doivent être sélectionnées"
+            }
+        }
+    },
+    "viewTemplateDialog": {
+        "title": "Voir un modèle",
+        "types": "Les types",
+        "noTypes": "Aucune type trouvée"
+    },
+    "editTemplateDialog": {
+        "title": "Modifier un modèle",
+        "description": "Modifier l'modèle",
+        "templateTitle": "Titre",
+        "types": "Types",
+        "typeSelectPlaceholder": "Choisir une type",
+        "typeSelectLabel": "Types",
+        "edit": "Modifier",
+        "toast": {
+            "success": {
+                "title": "Modèle modifié avec succès",
+                "description": "L'modèle a été modifié avec succès"
+            },
+            "error": {
+                "title": "Erreur de modification de l'modèle",
+                "description": "Une erreur s'est produite lors de la modification de l'modèle"
+            }
+        },
+        "templateSchema": {
+            "title": {
+                "min": "Le titre est requis",
+                "max": "Le titre ne doit pas dépasser 20 caractères"
+            },
+            "types": {
+                "arrayMin": "Au moins une type est requise",
+                "min": "Les types doivent être sélectionnées"
+            }
+        }
+    },
+    "deleteTemplateDialog": {
+        "title": "Supprimer un modèle",
+        "description": "Êtes-vous sûr de vouloir supprimer cet modèle?",
+        "delete": "Supprimer",
+        "toast": {
+            "success": {
+                "title": "Modèle supprimé avec succès",
+                "description": "L'modèle a été supprimé avec succès"
+            },
+            "error": {
+                "title": "Erreur de suppression de l'modèle",
+                "description": "Une erreur s'est produite lors de la suppression de l'modèle"
+            }
+        }
+    }
+}

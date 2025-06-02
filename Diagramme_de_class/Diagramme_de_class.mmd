@@ -1,40 +1,38 @@
 classDiagram
 
 namespace PkgEntretienInscription {
+  class EntretienModèle
   class Entretien
-  class Participation
-  class Branche
+  class TypeQuestion
   class Question
-  class Reponse
   class Evaluation
 }
 
-class Entretien {
+class EntretienModèle {
   id : ID
   title: string
   created_at : date
   updated_at : date
 }
 
-class Participation {
+class Entretien {
   id : ID
   status : string
+  date: date
   created_at : date
   updated_at : date
 }
 
-class Branche {
+class TypeQuestion {
   id : ID
   title : string
+  created_at : date
+  updated_at : date
 }
 
 class Question {
   id : ID
-  text : string
-}
-
-class Reponse {
-  id : ID
+  title : string
   created_at : date
   updated_at : date
 }
@@ -43,6 +41,8 @@ class Evaluation{
   id : ID
   note : float
   remarques : string
+  created_at : date
+  updated_at : date
 }
 
 namespace PkgTestInscription {
@@ -52,25 +52,25 @@ namespace PkgTestInscription {
 class Inscrit {
   id : ID
   nom : string
+  created_at : date
+  updated_at : date
 }
 
 namespace PkgUtilisateurs {
-  class Formateur
+  class Evaluateur
 }
 
-class Formateur {
+class Evaluateur {
   id : ID
   nom : string
-  email : string
+  created_at : date
+  updated_at : date
 }
 
-
-Inscrit "1" --> "*" Participation
-Participation "1" --> "*" Reponse
-Formateur "*" -- "*" Participation
-Branche "1" --> "*" Question
-Reponse "1" --> "1" Evaluation
-Formateur "1" --> "*" Evaluation
-Entretien "1" --> "*" Participation
-Branche "*" -- "*" Entretien
-Question "1" --> "*" Reponse
+Inscrit "1" -- "*" Entretien
+Entretien "1" -- "*" Evaluation
+TypeQuestion "1" -- "*" Question
+Evaluateur "1" -- "*" Evaluation
+EntretienModèle "1" -- "*" Entretien
+TypeQuestion "*" -- "*" EntretienModèle
+Question "1" -- "*" Evaluation

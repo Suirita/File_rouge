@@ -1,0 +1,118 @@
+{
+    "breadcrumbs": {
+        "template": "Interview templates"
+    },
+    "title": "Interview templates",
+    "filterYearPlaceholder": "Filter by year",
+    "allYears": "All years",
+    "table": {
+        "title": "Title",
+        "types": "Types",
+        "createdAt": "Created at",
+        "actions": "Actions",
+        "actionsPopover": {
+            "view": "View",
+            "edit": "Edit",
+            "delete": "Delete"
+        }
+    },
+    "add": "Add an interview",
+    "import": "Import interviews",
+    "export": "Export interviews",
+    "noItems": "No interviews found",
+    "noItemsDescription": "You can create a new interview by clicking the 'Add an interview' button",
+    "importInterviewPopover": {
+        "title": "Import interviews",
+        "description": "Import interviews from a file",
+        "file": "File",
+        "import": "Import",
+        "toast": {
+            "success": {
+                "title": "Interviews imported successfully",
+                "description": "The interviews have been imported successfully"
+            },
+            "error": {
+                "title": "Error importing interviews",
+                "description": "An error occurred while importing the interviews"
+            }
+        }
+    },
+    "createInterviewDialog": {
+        "title": "Create an interview",
+        "description": "Create a new interview",
+        "interviewTitle": "Title",
+        "types": "Types",
+        "typeSelectPlaceholder": "Choose a type",
+        "typeSelectLabel": "Types",
+        "add": "Add",
+        "toast": {
+            "success": {
+                "title": "Interview added successfully",
+                "description": "The interview has been added successfully"
+            },
+            "error": {
+                "title": "Error adding interview",
+                "description": "An error occurred while adding the interview"
+            }
+        },
+        "interviewSchema": {
+            "title": {
+                "min": "The title is required",
+                "max": "The title cannot exceed 20 characters"
+            },
+            "types": {
+                "arrayMin": "At least one type is required",
+                "min": "Types must be selected"
+            }
+        },
+        "viewInterviewDialog": {
+            "title": "View an interview",
+            "types": "Types",
+            "noTypes": "No types found"
+        },
+        "editInterviewDialog": {
+            "title": "Edit an interview",
+            "description": "Edit the interview",
+            "interviewTitle": "Title",
+            "types": "Types",
+            "typeSelectPlaceholder": "Choose a type",
+            "typeSelectLabel": "Types",
+            "edit": "Edit",
+            "toast": {
+                "success": {
+                    "title": "Interview updated successfully",
+                    "description": "The interview has been updated successfully"
+                },
+                "error": {
+                    "title": "Error updating interview",
+                    "description": "An error occurred while updating the interview"
+                }
+            },
+            "interviewSchema": {
+                "title": {
+                    "min": "The title is required",
+                    "max": "The title cannot exceed 20 characters"
+                },
+                "types": {
+                    "arrayMin": "At least one type is required",
+                    "min": "Types must be selected"
+                }
+            }
+        },
+        "deleteInterviewDialog": {
+            "title": "Delete an interview",
+            "description": "Are you sure you want to delete this interview?",
+            "delete": "Delete",
+            "toast": {
+                "success": {
+                    "title": "Interview deleted successfully",
+                    "description": "The interview has been deleted successfully"
+                },
+                "error": {
+                    "title": "Error deleting interview",
+                    "description": "An error occurred while deleting the interview"
+                }
+            }
+        }
+    }
+}
