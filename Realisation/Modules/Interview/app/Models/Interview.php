@@ -4,19 +4,29 @@ namespace Modules\Interview\app\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Interview extends Model
 {
-    protected $fillable = ['title'];
+    protected $fillable = [
+        'candidate_id',
+        'template_id',
+        'status',
+        'date',
+    ];
 
-    public function participations(): HasMany
+    public function candidate(): BelongsTo
     {
-        return $this->hasMany(Participation::class);
+        return $this->belongsTo(Candidate::class);
     }
 
-    public function branches(): BelongsToMany
+    public function template(): BelongsTo
     {
-        return $this->BelongsToMany(Branch::class, 'interviews_branches');
+        return $this->belongsTo(Template::class);
+    }
+
+    public function evaluations(): HasMany
+    {
+        return $this->hasMany(Evaluation::class);
     }
 }

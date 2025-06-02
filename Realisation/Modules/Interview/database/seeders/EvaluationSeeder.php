@@ -1,46 +1,59 @@
 <?php
 
-namespace Modules\Interview\Database\Seeders;
+namespace Modules\Interview\database\seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Modules\Interview\app\Models\Evaluation;
+use Modules\Interview\app\Models\Evaluator;
+use Modules\Interview\app\Models\Interview;
+use Modules\Interview\app\Models\Question;
 
 class EvaluationSeeder extends Seeder
 {
     public function run()
     {
-        $answers = DB::table('answers')
-            ->join('participations', 'answers.participation_id', '=', 'participations.id')
-            ->join('trainers_participations', 'participations.id', '=', 'trainers_participations.participation_id')
-            ->select([
-                'answers.id as answer_id',
-                'trainers_participations.trainer_id',
-            ])
-            ->get();
+        $interviews = Interview::where('status', 'completed')->get();
+
+        $evaluators = Evaluator::all();
 
         $evaluations = [];
 
-        foreach ($answers as $r) {
-            $evaluations[] = [
-                'answer_id'  => $r->answer_id,
-                'trainer_id' => $r->trainer_id,
-                'score'      => $this->makeDummyScore(),
-                'remarks'    => $this->makeDummyRemark(),
-            ];
+        foreach ($interviews as $interview) {
+            $evaluatorgroup = ($interview->id % 2 === 0)
+                ? [$evaluators[0], $evaluators[1]]
+                : [$evaluators[2], $evaluators[3]];
+
+            $questions = Question::whereHas('type.templates.interviews', function ($query) use ($interview) {
+                $query->where('interviews.id', $interview->id);
+            })->get();
+
+
+            foreach ($evaluatorgroup as $eg) {
+                foreach ($questions as $question) {
+                    $evaluations[] = [
+                        'evaluator_id' => $eg->id,
+                        'interview_id' => $interview->id,
+                        'question_id' => $question->id,
+                        'score'      => $this->makeDummyScore(),
+                        'remarks'    => $this->makeDummyRemark(),
+                        'created_at' => $interview->date,
+                        'updated_at' => $interview->date,
+                    ];
+                }
+            }
         }
 
-        foreach ($evaluations as $evaluation) {
-            Evaluation::create($evaluation);
+        if (!empty($evaluations)) {
+            DB::table('evaluations')->insert($evaluations);
         }
     }
 
     /**
-     * Dummy score generator (1–5).
+     * Dummy score generator (1–10).
      */
     protected function makeDummyScore(): int
     {
-        return rand(1, 5);
+        return rand(1, 10);
     }
 
     /**
@@ -49,11 +62,11 @@ class EvaluationSeeder extends Seeder
     protected function makeDummyRemark(): string
     {
         $remarks = [
-            'Very clear and concise.',
-            'Good depth of knowledge.',
-            'Could elaborate more on edge cases.',
-            'Strong conceptual understanding.',
-            'Answers were too brief.',
+            'Très clair et concis.',
+            'Bonne profondeur de connaissances.',
+            'Pourrait élaborer davantage sur les cas limites.',
+            'Solide compréhension conceptuelle.',
+            'Les réponses étaient trop brèves.',
         ];
 
         return $remarks[array_rand($remarks)];

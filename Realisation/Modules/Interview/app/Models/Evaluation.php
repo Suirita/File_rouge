@@ -8,19 +8,25 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Evaluation extends Model
 {
     protected $fillable = [
-        'answer_id',
-        'trainer_id',
+        'evaluator_id',
+        'interview_id',
+        'question_id',
         'score',
         'remarks',
     ];
 
-    public function answer(): BelongsTo
+    public function evaluator(): BelongsTo
     {
-        return $this->belongsTo(Answer::class);
+        return $this->BelongsTo(Evaluator::class);
     }
 
-    public function trainer(): BelongsTo
+    public function interview(): BelongsTo
     {
-        return $this->BelongsTo(Trainer::class);
+        return $this->belongsTo(Interview::class);
+    }
+
+    public function question(): BelongsTo
+    {
+        return $this->belongsTo(Question::class);
     }
 }

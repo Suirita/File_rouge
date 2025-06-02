@@ -1,7 +1,6 @@
 {
     "dashboard": "Dashboard",
-    "interviews": "Interviews",
-    "branches": "Branches",
-    "questions": "Questions",
-    "candidates": "Candidates"
+    "interview": "Interview",
+    "template": "Interview Templates",
+    "question": "Questions"
 }

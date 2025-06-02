@@ -1,0 +1,12 @@
+@startuml Sprint_3
+left to right direction
+actor "Formateur" as fr
+actor "Responsable des Stagiaires" as rs
+rectangle EntretienInscription {
+  usecase "CRUD Entretiens" as UC1
+}
+
+fr -- UC1
+
+rs -- UC1
+@enduml

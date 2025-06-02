@@ -1,14 +1,26 @@
 @startuml Cas_utilisation
 left to right direction
+
 actor "Formateur" as fr
-rectangle System {
+actor "Responsable des Stagiaires" as rs
+
+rectangle EntretienInscription {
   usecase "Voir les analyses" as UC1
-  usecase "CRUD Branche" as UC2
-  usecase "CRUD Question" as UC3
-  usecase "Entretien" as UC4
+  usecase "CRUD EntretienTemplates" as UC2
+  usecase "CRUD TypeQuestions" as UC3
+  usecase "CRUD Questiones" as UC4
+  usecase "CRUD Entretiens" as UC5
 }
+
 fr -- UC1
 fr -- UC2
-UC2 <.. UC3 : <<extends>>
-fr -- UC4
+fr -- UC3
+fr -- UC5
+
+rs -- UC1
+rs -- UC2
+rs -- UC3
+rs -- UC5
+
+UC3 <.. UC4 : <<extends>>
 @enduml

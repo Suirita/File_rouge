@@ -4,7 +4,7 @@ import NavUser from '@/components/NavUser.vue';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/vue3';
-import { LayoutGrid, Newspaper } from 'lucide-vue-next';
+import { LayoutGrid, Newspaper, FileQuestion } from 'lucide-vue-next';
 import { useI18n } from 'vue-i18n';
 import AppLogo from './AppLogo.vue';
 
@@ -17,10 +17,15 @@ const mainNavItems: NavItem[] = [
         icon: LayoutGrid,
     },
     {
-        title: t('sidebar.interviews'),
-        href: '/dashboard/interview',
+        title: t('sidebar.template'),
+        href: '/dashboard/template',
         icon: Newspaper,
     },
+    {
+        title: t('sidebar.question'),
+        href: '/dashboard/question',
+        icon: FileQuestion,
+    }
 ];
 </script>
 

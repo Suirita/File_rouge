@@ -4,7 +4,6 @@ namespace  Modules\Interview\database\seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Modules\Interview\app\Models\Question;
 
 class QuestionSeeder extends Seeder
 {
@@ -12,38 +11,31 @@ class QuestionSeeder extends Seeder
     {
         $questions = [
             [
-                'branch_id' => 1,
-                'text' => 'Présentation en français',
+                'type_id' => 1,
+                'title' => 'Présentation en français',
             ],
             [
-                'branch_id' => 2,
-                'text' => 'Introduction in english',
+                'type_id' => 2,
+                'title' => 'Introduction in english',
             ],
             [
-                'branch_id' => 3,
-                'text' => 'Time management',
+                'type_id' => 3,
+                'title' => 'Time management',
             ],
             [
-                'branch_id' => 3,
-                'text' => 'Conflict resolution',
+                'type_id' => 3,
+                'title' => 'Conflict resolution',
             ],
             [
-                'branch_id' => 4,
-                'text' => 'Teamwork',
+                'type_id' => 4,
+                'title' => 'Teamwork',
             ],
             [
-                'branch_id' => 5,
-                'text' => 'JavaScript generale',
+                'type_id' => 5,
+                'title' => 'JavaScript generale',
             ],
-            [
-                'branch_id' => 6,
-                'text' => 'PHP generale',
-            ],
-
         ];
 
-        foreach ($questions as $question) {
-            Question::create($question);
-        }
+        DB::table('questions')->insert($questions);
     }
 }

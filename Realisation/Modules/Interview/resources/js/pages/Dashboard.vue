@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Select,
   SelectContent,
@@ -27,6 +22,7 @@ import { Head, router, usePage } from '@inertiajs/vue3';
 import {
   Award,
   BarChart3,
+  CalendarDays,
   CheckCircle,
   ChevronRight,
   Clock,
@@ -53,8 +49,8 @@ const props = defineProps<{
     averageScore: number;
     AbsentRate: number;
   };
-  avgScoreByBranch: {
-    title: string;
+  avgScoreByQuestionType: {
+    name: string;
     average_score: number;
   };
   lastInterviews: {
@@ -63,8 +59,14 @@ const props = defineProps<{
       name: string;
     };
     status: string;
-    updated_at: string;
+    evaluations: {
+      score: number;
+      remarks: string;
+    }[];
+    date: string;
   }[];
+  years: string[];
+  selectedYear: string;
 }>();
 
 const totalInterviews = props.metrics.totalInterviews;
@@ -72,26 +74,26 @@ const completedInterviews = props.metrics.completedInterviews;
 const averageScore = props.metrics.averageScore;
 const AbsentRate = props.metrics.AbsentRate;
 
+const branchLabels = Object.values(props.avgScoreByQuestionType).map((b: any) => b.title);
+const branchScores = Object.values(props.avgScoreByQuestionType).map((b: any) => b.average_score);
+
 // Add year filter state
-const currentYear = new Date().getFullYear();
-const selectedYear = ref(currentYear.toString());
-const years = ref([
-  currentYear.toString(),
-  (currentYear - 1).toString(),
-  (currentYear - 2).toString(),
-  (currentYear - 3).toString(),
-]);
+const currentYear = 2024;
+const selectedYear = ref(props.selectedYear ?? currentYear.toString());
+const years = ref(props.years.length ? props.years : [currentYear.toString()]);
+
+function handleYearChange(selectedYear: string) {
+  router.get(page.url.split('?')[0], { selectedYear }, { replace: true });
+}
 
 // Calculate completion percentage
 const completionPercentage =
-  totalInterviews > 0
-    ? Math.round((completedInterviews / totalInterviews) * 100)
-    : 0;
+  totalInterviews > 0 ? Math.round((completedInterviews / totalInterviews) * 100) : 0;
 
 // Determine score color based on value (1-5 scale)
 const getScoreColor = (score: number) => {
-  if (score >= 4) return 'text-emerald-500';
-  if (score >= 3) return 'text-amber-500';
+  if (score >= 8) return 'text-emerald-500';
+  if (score >= 5) return 'text-amber-500';
   return 'text-rose-500';
 };
 
@@ -102,13 +104,6 @@ const getAbsentRateColor = (rate: number) => {
   return 'text-rose-500';
 };
 
-const branchLabels = Object.values(props.avgScoreByBranch).map(
-  (b: any) => b.title,
-);
-const branchScores = Object.values(props.avgScoreByBranch).map(
-  (b: any) => b.average_score,
-);
-
 const formatDate = (iso: string) => {
   const dt = new Date(iso);
   return dt.toLocaleString('fr-FR', {
@@ -117,17 +112,15 @@ const formatDate = (iso: string) => {
   });
 };
 
-function handleYearChange(year: string) {
-  router.get(
-    // this is the actual current URL path (e.g. "/dashboard")
-    page.url.split('?')[0],
-    { year },
-    {
-      preserveState: true, // keeps your other props intact
-      replace: true, // avoids adding a new history entry
-    },
-  );
-}
+const getAvgScore = (evaluations: { score: number }[]): string => {
+  if (!evaluations || evaluations.length === 0) {
+    return '—'; // or "0.0" if you prefer
+  }
+  const sum = evaluations.reduce((acc, ev) => acc + ev.score, 0);
+  const avg = sum / evaluations.length;
+  // round to one decimal place and return as string
+  return avg.toFixed(1);
+};
 </script>
 
 <template>
@@ -136,25 +129,18 @@ function handleYearChange(year: string) {
   <AppLayout :breadcrumbs="breadcrumbs">
     <div class="flex justify-end px-2 pt-2">
       <div class="flex items-center gap-2">
-        <span class="text-sm font-medium text-muted-foreground">{{
-          $t('dashboard.filterByYear')
-        }}</span>
-        <Select
-          v-model="selectedYear"
-          @update:modelValue="handleYearChange"
-        >
+        <span class="text-sm font-medium text-muted-foreground">
+          {{ $t('dashboard.filterByYear') }}
+        </span>
+        <Select v-model="selectedYear" @update:modelValue="handleYearChange">
           <SelectTrigger class="w-[120px]">
             <div class="flex items-center gap-2">
-              <CalendarIcon class="h-4 w-4 text-muted-foreground" />
-              <SelectValue :placeholder="currentYear.toString()" />
+              <CalendarDays class="h-4 w-4 text-muted-foreground" />
+              <SelectValue :value="selectedYear" :placeholder="currentYear.toString()" />
             </div>
           </SelectTrigger>
           <SelectContent>
-            <SelectItem
-              v-for="year in years"
-              :key="year"
-              :value="year"
-            >
+            <SelectItem v-for="year in years" :key="year" :value="year">
               {{ year }}
             </SelectItem>
           </SelectContent>
@@ -162,35 +148,26 @@ function handleYearChange(year: string) {
       </div>
     </div>
 
-    <div
-      class="grid grid-cols-1 gap-6 px-6 py-4 sm:grid-cols-1 lg:grid-cols-3"
-    >
+    <div class="grid grid-cols-1 gap-6 px-6 py-4 sm:grid-cols-1 lg:grid-cols-3">
       <!-- Completed Interviews Card -->
       <Card class="overflow-hidden shadow-sm">
         <CardHeader
           class="flex flex-row items-center justify-between space-y-0 bg-gradient-to-r from-blue-50 to-blue-100 pb-2 dark:from-blue-950 dark:to-blue-900"
         >
           <div>
-            <CardTitle
-              class="text-sm font-medium text-muted-foreground"
-              >{{
-                t(
-                  'dashboard.kpi.completedParticipations.CompletedParticipations',
-                )
-              }}</CardTitle
-            >
+            <CardTitle class="text-sm font-medium text-muted-foreground">
+              {{ t('dashboard.kpi.completedInterviews.completedInterviews') }}
+            </CardTitle>
             <p class="mt-1 text-2xl font-bold">
               {{ completedInterviews }}
-              <span class="text-sm font-normal text-muted-foreground"
-                >{{ t('dashboard.kpi.completedParticipations.of') }}
-                {{ totalInterviews }}</span
-              >
+              <span class="text-sm font-normal text-muted-foreground">
+                {{ t('dashboard.kpi.completedInterviews.of') }}
+                {{ totalInterviews }}
+              </span>
             </p>
           </div>
           <div class="rounded-full bg-blue-100 p-2 dark:bg-blue-800">
-            <CheckCircle
-              class="h-5 w-5 text-blue-600 dark:text-blue-300"
-            />
+            <CheckCircle class="h-10 w-10 text-blue-600 dark:text-blue-300" />
           </div>
         </CardHeader>
         <CardContent class="pt-4">
@@ -203,17 +180,11 @@ function handleYearChange(year: string) {
                 }"
               ></div>
             </div>
-            <span class="text-sm font-medium"
-              >{{ completionPercentage }}%</span
-            >
+            <span class="text-sm font-medium">{{ completionPercentage }}%</span>
           </div>
           <p class="mt-2 text-xs text-muted-foreground">
             {{ totalInterviews - completedInterviews }}
-            {{
-              $t(
-                'dashboard.kpi.completedParticipations.participationsRemaining',
-              )
-            }}
+            {{ $t('dashboard.kpi.completedInterviews.interviewsRemaining') }}
           </p>
         </CardContent>
       </Card>
@@ -224,27 +195,18 @@ function handleYearChange(year: string) {
           class="flex flex-row items-center justify-between space-y-0 bg-gradient-to-r from-amber-50 to-amber-100 pb-2 dark:from-amber-950 dark:to-amber-900"
         >
           <div>
-            <CardTitle
-              class="text-sm font-medium text-muted-foreground"
-            >
+            <CardTitle class="text-sm font-medium text-muted-foreground">
               {{ $t('dashboard.kpi.averageScore.averageScore') }}
             </CardTitle>
             <p class="mt-1 flex items-baseline text-2xl font-bold">
-              <span :class="getScoreColor(averageScore)">{{
-                averageScore.toFixed(1)
-              }}</span>
-              <span
-                class="ml-1 text-sm font-normal text-muted-foreground"
-                >/ 5.0</span
-              >
+              <span :class="getScoreColor(averageScore)">
+                {{ averageScore.toFixed(1) }}
+              </span>
+              <span class="ml-1 text-sm font-normal text-muted-foreground"> / 5.0 </span>
             </p>
           </div>
-          <div
-            class="rounded-full bg-amber-100 p-2 dark:bg-amber-800"
-          >
-            <Award
-              class="h-5 w-5 text-amber-600 dark:text-amber-300"
-            />
+          <div class="rounded-full bg-amber-100 p-2 dark:bg-amber-800">
+            <Award class="h-10 w-10 text-amber-600 dark:text-amber-300" />
           </div>
         </CardHeader>
         <CardContent class="pt-4">
@@ -253,20 +215,16 @@ function handleYearChange(year: string) {
               <div
                 class="h-2 rounded-full bg-amber-500 transition-all duration-500"
                 :style="{
-                  width: `${(averageScore / 5) * 100}%`,
+                  width: `${(averageScore / 10) * 100}%`,
                 }"
               ></div>
             </div>
-            <span class="text-sm font-medium"
-              >{{ Math.round((averageScore / 5) * 100) }}%</span
-            >
+            <span class="text-sm font-medium"> {{ Math.round((averageScore / 10) * 100) }}% </span>
           </div>
           <p class="mt-2 text-xs text-muted-foreground">
             {{ $t('dashboard.kpi.averageScore.basedOn') }}
             {{ completedInterviews }}
-            {{
-              $t('dashboard.kpi.averageScore.completedParticipations')
-            }}
+            {{ $t('dashboard.kpi.averageScore.completedInterviews') }}
           </p>
         </CardContent>
       </Card>
@@ -277,19 +235,15 @@ function handleYearChange(year: string) {
           class="flex flex-row items-center justify-between space-y-0 bg-gradient-to-r from-rose-50 to-rose-100 pb-2 dark:from-rose-950 dark:to-rose-900"
         >
           <div>
-            <CardTitle
-              class="text-sm font-medium text-muted-foreground"
-            >
+            <CardTitle class="text-sm font-medium text-muted-foreground">
               {{ t('dashboard.kpi.absentRate.absentCandidatesRate') }}
             </CardTitle>
             <p class="mt-1 text-2xl font-bold">
-              <span :class="getAbsentRateColor(AbsentRate)"
-                >{{ AbsentRate }}%</span
-              >
+              <span :class="getAbsentRateColor(AbsentRate)">{{ AbsentRate }}%</span>
             </p>
           </div>
           <div class="rounded-full bg-rose-100 p-2 dark:bg-rose-800">
-            <UserX class="h-5 w-5 text-rose-600 dark:text-rose-300" />
+            <UserX class="h-10 w-10 text-rose-600 dark:text-rose-300" />
           </div>
         </CardHeader>
         <CardContent class="pt-4">
@@ -305,32 +259,22 @@ function handleYearChange(year: string) {
           </div>
           <p class="mt-2 text-xs text-muted-foreground">
             {{ Math.round(totalInterviews * (AbsentRate / 100)) }}
-            {{
-              $t(
-                'dashboard.kpi.absentRate.candidatesMissedTheirParticipations',
-              )
-            }}
+            {{ $t('dashboard.kpi.absentRate.candidatesMissedTheirInterview') }}
           </p>
         </CardContent>
       </Card>
 
       <!-- Latest Interviews Table -->
       <Card class="shadow-sm lg:col-span-2">
-        <CardHeader
-          class="flex flex-row items-center justify-between space-y-0 border-b pb-4"
-        >
+        <CardHeader class="flex flex-row items-center justify-between space-y-0 border-b pb-4">
           <div class="flex items-center">
             <Clock class="mr-2 h-5 w-5 text-muted-foreground" />
             <CardTitle>
-              {{
-                $t(
-                  'dashboard.latestParticipations.latestParticipations',
-                )
-              }}
+              {{ $t('dashboard.latestInterviews.latestInterviews') }}
             </CardTitle>
           </div>
           <Button class="text-primary-foreground" size="sm">
-            {{ $t('dashboard.latestParticipations.viewAll') }}
+            {{ $t('dashboard.latestInterviews.viewAll') }}
             <ChevronRight class="h-3 w-3" />
           </Button>
         </CardHeader>
@@ -339,21 +283,16 @@ function handleYearChange(year: string) {
             <TableHeader>
               <TableRow>
                 <TableHead>
-                  {{
-                    $t(
-                      'dashboard.latestParticipations.table.candidate',
-                    )
-                  }}
+                  {{ $t('dashboard.latestInterviews.table.candidate') }}
                 </TableHead>
                 <TableHead class="text-center">
-                  {{
-                    $t('dashboard.latestParticipations.table.status')
-                  }}
+                  {{ $t('dashboard.latestInterviews.table.status') }}
+                </TableHead>
+                <TableHead class="text-center">
+                  {{ $t('dashboard.latestInterviews.table.score') }}
                 </TableHead>
                 <TableHead class="text-right">
-                  {{
-                    $t('dashboard.latestParticipations.table.date')
-                  }}
+                  {{ $t('dashboard.latestInterviews.table.date') }}
                 </TableHead>
               </TableRow>
             </TableHeader>
@@ -363,20 +302,17 @@ function handleYearChange(year: string) {
                 :key="interview.id"
                 class="hover:bg-muted/50"
               >
-                <TableCell class="font-medium">{{
-                  interview.candidate.name
-                }}</TableCell>
+                <TableCell class="font-medium">{{ interview.candidate.name }}</TableCell>
                 <TableCell class="text-center">
-                  <span
-                    class="rounded-full bg-green-500 px-2 py-1 text-xs font-medium"
-                  >
+                  <span class="rounded-full bg-green-500 px-2 py-1 text-xs font-medium">
                     {{ interview.status }}
                   </span>
                 </TableCell>
-                <TableCell
-                  class="text-right text-xs text-muted-foreground"
-                >
-                  {{ formatDate(interview.updated_at) }}
+                <TableCell class="text-center font-medium">{{
+                  getAvgScore(interview.evaluations)
+                }}</TableCell>
+                <TableCell class="text-right text-xs text-muted-foreground">
+                  {{ formatDate(interview.date) }}
                 </TableCell>
               </TableRow>
             </TableBody>
@@ -386,22 +322,14 @@ function handleYearChange(year: string) {
 
       <!-- Average Score by Branch Chart -->
       <Card class="shadow-sm lg:col-span-1">
-        <CardHeader
-          class="flex flex-row items-center justify-between space-y-0 border-b pb-4"
-        >
+        <CardHeader class="flex flex-row items-center justify-between space-y-0 border-b pb-4">
           <div class="flex items-center">
             <BarChart3 class="mr-2 h-5 w-5 text-muted-foreground" />
-            <CardTitle>
-              {{ $t('dashboard.averageScoreByBranch') }}</CardTitle
-            >
+            <CardTitle> {{ $t('dashboard.averageScoreByQuestionType') }}</CardTitle>
           </div>
         </CardHeader>
         <CardContent class="pt-6">
-          <BarChart
-            :labels="branchLabels"
-            :data="branchScores"
-            :max-score="5"
-          />
+          <BarChart :labels="branchLabels" :data="branchScores" :max-score="5" />
         </CardContent>
       </Card>
     </div>

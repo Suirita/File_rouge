@@ -3,37 +3,34 @@
 namespace Modules\Interview\database\seeders;
 
 use Illuminate\Database\Seeder;
-use Modules\Interview\App\Models\Candidate;
+use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
 
 class CandidateSeeder extends Seeder
 {
     public function run()
     {
-        $names = [
-            'Alice Martin',
-            'Bob Dupont',
-            'Charlie Durand',
-            'Dana Leroy',
-            'Evelyn Smith',
-            'François Moreau',
-            'Gabriel Bernard',
-            'Hannah Leroy',
-            'Isabelle Doe',
-            'Julien Petit',
-            'Karim Haddad',
-            'Laura Dubois',
-            'Nadia Roux',
-            'Olivier Blanc',
-            'Pauline Roy',
-            'Quentin Rousseau',
-            'Rania Kheir',
-            'Samuel Girard',
-            'Tara Michel',
-            'Victor Leroy',
-        ];
+        $faker = Faker::create('en-US');
 
-        foreach ($names as $name) {
-            Candidate::create(['name' => $name]);
+        $candidates = [];
+
+        for ($i = 0; $i < 40; $i++) {
+            // Generate a random first + last name
+            $name = $faker->firstName() . ' ' . $faker->lastName();
+
+            // Half get 2023-09-01, half get 2024-09-01
+            $timestamp = $i < 20
+                ? '2023-01-01 00:00:00'
+                : '2024-01-01 00:00:00';
+
+            $candidates[] = [
+                'name'       => $name,
+                'created_at' => $timestamp,
+                'updated_at' => $timestamp,
+            ];
         }
+
+        // Bulk insert all 40 in one go
+        DB::table('candidates')->insert($candidates);
     }
 }

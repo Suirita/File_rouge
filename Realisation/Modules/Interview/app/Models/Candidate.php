@@ -9,8 +9,8 @@ class Candidate extends Model
 {
     protected $fillable = ['name'];
 
-    public function participations(): HasMany
+    public function interviews(): HasMany
     {
-        return $this->hasMany(Participation::class);
+        return $this->hasMany(Interview::class);
     }
 }

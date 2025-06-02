@@ -1,8 +1,22 @@
 @startuml Sprint_1
 left to right direction
 actor "Formateur" as fr
-rectangle System {
+actor "Responsable des Stagiaires" as rs
+rectangle EntretienInscription {
   usecase "Voir les analyses" as UC1
+  usecase "Voir participations complétées" as UC2
+  usecase "Voir note moyenne" as UC3
+  usecase "Voir taux de inscrites absents" as UC4
+  usecase "Voir derniers participations" as UC5
+  usecase "Voir note noyenne par branche" as UC6
 }
+
 fr -- UC1
+rs -- UC1
+
+UC1 <.. UC2 : <<extends>>
+UC1 <.. UC3 : <<extends>>
+UC1 <.. UC4 : <<extends>>
+UC1 <.. UC5 : <<extends>>
+UC1 <.. UC6 : <<extends>>
 @enduml

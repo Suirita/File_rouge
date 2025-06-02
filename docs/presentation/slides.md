@@ -125,27 +125,28 @@
 
 ### **6. Réalisation:**
 
-- 6.1. Sprint 1
-- 6.2. Sprint 2
-- 6.3. Sprint 3
+- 6.1. Technologiques utilisées
+- 6.2. Sprint 1
+- 6.3. Sprint 2
+- 6.4. Sprint 3
 
 |||
 
-#### **6.1. Sprint 1:**
+#### **6.1. Technologiques utilisées:**
 
-![Sprint 1](../assets/img/Sprint_1.svg)
-
-|||
-
-#### **6.2. Sprint 2:**
-
-![Sprint 2](../assets/img/Sprint_2.svg)
+![Technologiques](../assets/img/Technologiques.png) 
 
 |||
 
-#### **6.3. Sprint 3:**
+#### **6.2. Sprint 1:**
 
-![Sprint 3](../assets/img/Sprint_3.svg)
+|||
+
+#### **6.3. Sprint 2:**
+
+|||
+
+#### **6.4. Sprint 3:**
 
 ---
 
