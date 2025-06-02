@@ -6,8 +6,8 @@ actor "Responsable des Stagiaires" as rs
 
 rectangle EntretienInscription {
   usecase "Voir les analyses" as UC1
-  usecase "CRUD EntretienTemplates" as UC2
-  usecase "CRUD TypeQuestions" as UC3
+  usecase "CRUD Modèles de entretiens" as UC3
+  usecase "CRUD Type des questions" as UC4
   usecase "CRUD Questiones" as UC4
   usecase "CRUD Entretiens" as UC5
 }

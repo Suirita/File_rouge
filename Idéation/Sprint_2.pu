@@ -3,8 +3,8 @@ left to right direction
 actor "Formateur" as fr
 actor "Responsable des Stagiaires" as rs
 rectangle EntretienInscription {
-  usecase "CRUD EntretienTemplates" as UC1
-  usecase "CRUD TypeQuestions" as UC2
+  usecase "CRUD Modèles de question" as UC1
+  usecase "CRUD Type des questions" as UC2
   usecase "CRUD Questiones" as UC3
 }
 
