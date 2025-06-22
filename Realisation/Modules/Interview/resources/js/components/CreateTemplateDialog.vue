@@ -59,7 +59,7 @@ const templateSchema = toTypedSchema(
       .min(1, t('template.createTemplateDialog.templateSchema.title.min'))
       .max(20, t('template.createTemplateDialog.templateSchema.title.max')),
     // types array is defined by formFields, validated as numbers
-    types: z.array(z.number()),
+    types: z.array(z.number().min(1, t('template.createTemplateDialog.templateSchema.types.min'))),
   }),
 );
 
@@ -154,12 +154,12 @@ const removeType = (i: number) => {
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
-                  <SelectLabel>{{
-                    t('template.createTemplateDialog.typeSelectLabel')
-                  }}</SelectLabel>
-                  <SelectItem v-for="opt in availableTypes(index)" :key="opt.id" :value="opt.id">{{
-                    opt.title
-                  }}</SelectItem>
+                  <SelectLabel>
+                    {{ t('template.createTemplateDialog.typeSelectLabel') }}
+                  </SelectLabel>
+                  <SelectItem v-for="opt in availableTypes(index)" :key="opt.id" :value="opt.id">
+                    {{ opt.title }}
+                  </SelectItem>
                 </SelectGroup>
               </SelectContent>
             </Select>
@@ -177,9 +177,9 @@ const removeType = (i: number) => {
         </div>
 
         <!-- Submit button -->
-        <Button type="submit" class="mt-4 w-full">{{
-          t('template.createTemplateDialog.add')
-        }}</Button>
+        <Button type="submit" class="mt-4 w-full">
+          {{ t('template.createTemplateDialog.add') }}
+        </Button>
       </form>
     </DialogContent>
   </Dialog>

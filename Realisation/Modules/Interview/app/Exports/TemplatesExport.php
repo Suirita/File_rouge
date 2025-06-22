@@ -53,7 +53,7 @@ class TemplatesExport implements FromQuery, WithMapping, WithHeadings, WithColum
     public function columnFormats(): array
     {
         return [
-            'D' => NumberFormat::FORMAT_DATE_DATETIME,
+            'C' => NumberFormat::FORMAT_DATE_DATETIME,
         ];
     }
 }

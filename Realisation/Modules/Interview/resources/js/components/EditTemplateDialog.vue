@@ -14,10 +14,10 @@ import { Label } from '@/components/ui/label';
 // Select
 import {
   Select,
-  SelectGroup,
-  SelectLabel,
   SelectContent,
+  SelectGroup,
   SelectItem,
+  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
@@ -66,9 +66,7 @@ const templateSchema = toTypedSchema(
       .string()
       .min(1, t('template.editTemplateDialog.templateSchema.title.min'))
       .max(20, t('template.editTemplateDialog.templateSchema.title.max')),
-    types: z
-      .array(z.number().min(1, t('template.editTemplateDialog.templateSchema.types.min')))
-      .min(1, t('template.editTemplateDialog.templateSchema.types.arrayMin')),
+    types: z.array(z.number().min(1, t('template.editTemplateDialog.templateSchema.types.min'))),
   }),
 );
 
@@ -181,15 +179,12 @@ const editTemplate = handleSubmit(async (values) => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectLabel>{{
-                      t('template.editTemplateDialog.typeSelectLabel')
-                    }}</SelectLabel>
-                    <SelectItem
-                      v-for="opt in availableTypes(index)"
-                      :key="opt.id"
-                      :value="opt.id"
-                      >{{ opt.title }}</SelectItem
-                    >
+                    <SelectLabel>
+                      {{ t('template.editTemplateDialog.typeSelectLabel') }}
+                    </SelectLabel>
+                    <SelectItem v-for="opt in availableTypes(index)" :key="opt.id" :value="opt.id">
+                      {{ opt.title }}
+                    </SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
@@ -198,8 +193,9 @@ const editTemplate = handleSubmit(async (values) => {
                 type="button"
                 @click="removeType(index)"
                 class="bg-red-500 hover:bg-red-400"
-                ><Trash
-              /></Button>
+              >
+                <Trash />
+              </Button>
             </div>
             <p v-if="errors.types" class="text-sm text-red-500">{{ errors.types }}</p>
           </div>

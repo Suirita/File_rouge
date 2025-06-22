@@ -1,0 +1,139 @@
+{
+    "breadcrumbs": "Interviews",
+    "title": "Interviews",
+    "start": "Start an interview",
+    "allCandidates": "All candidates",
+    "searchCandidate": "Search candidate",
+    "noCandidateFound": "No candidate found",
+    "allTemplates": "All templates",
+    "filterTemplatePlaceholder": "Filter by template",
+    "allStatuses": "All statuses",
+    "filterStatusPlaceholder": "Filter by status",
+    "filterDatePlaceholder": "Filtrer by date",
+    "allDates": "All dates",
+    "clearFilters": "Clear filters",
+    "import": "Import interviews",
+    "export": "Export",
+    "add": "Add an interview",
+    "table": {
+        "candidate": "Candidate name",
+        "template": "Template title",
+        "status": "Status",
+        "score": "Score",
+        "date": "Date",
+        "actions": "Actions",
+        "statusOptions": {
+            "pending": "Pending",
+            "completed": "Completed",
+            "absent": "Absent"
+        },
+        "actionsPopover": {
+            "view": "View",
+            "edit": "Edit",
+            "delete": "Delete"
+        }
+    },
+    "noItems": "No interviews found",
+    "noItemsDescription": "There are no interviews to display.",
+    "startInterviewDialog": {
+        "title1": "Start an interview",
+        "title2": "Interview: ",
+        "description1": "Start an interview by selecting a candidate.",
+        "description2": "Rate each question and provide remarks",
+        "allCandidates": "All candidates",
+        "searchCandidate": "Search candidate",
+        "noCandidateFound": "No candidate found",
+        "allTemplates": "All templates",
+        "filterTemplatePlaceholder": "Filter by template",
+        "selectCandidate": "Select a candidate",
+        "typeTitle": "Type: ",
+        "questionTitle": "Question: ",
+        "selected": "Selected: ",
+        "remarks": "Remarks",
+        "submit": "Submit Evaluation",
+        "toast": {
+            "success": {
+                "title": "Evaluation submitted successfully",
+                "description": "The evaluation has been successfully submitted."
+            },
+            "error": {
+                "title": "Error submitting evaluation",
+                "description": "There was an error submitting the evaluation."
+            }
+        }
+    },
+    "importInterviewPopover": {
+        "title": "Import interviews",
+        "description": "Upload a CSV file containing interviews.",
+        "file": "File",
+        "import": "Import",
+        "toast": {
+            "success": {
+                "title": "Interviews imported successfully",
+                "description": "The interviews have been successfully imported."
+            },
+            "error": {
+                "title": "Error importing interviews",
+                "description": "There was an error importing the interviews."
+            }
+        }
+    },
+    "viewInterviewDialog": {
+        "overview": "Overview",
+        "evaluations": "Evaluations",
+        "score": "Score",
+        "questions": "questions",
+        "date": "Date",
+        "template": "Template",
+        "status": {
+            "pending": "Pending",
+            "completed": "Completed",
+            "absent": "Absent"
+        }
+    },
+    "editInterviewDialog": {
+        "title": "Edit Interview",
+        "description": "Edit the details of the selected interview.",
+        "status": "Status",
+        "statusSelectPlaceholder": "Select a status",
+        "statusSelectLabel": "Status",
+        "template": "Template",
+        "templateSelectPlaceholder": "Select a template",
+        "templateSelectLabel": "Template",
+        "date": "Date",
+        "dateSelectPlaceholder": "Select a date",
+        "dateSelectLabel": "Date",
+        "edit": "Edit",
+        "interviewSchema": {
+            "status": "Status is required",
+            "template": "Template is required",
+            "date": "Date is required"
+        },
+        "toast": {
+            "success": {
+                "title": "Interview updated successfully",
+                "description": "The interview has been updated successfully."
+            },
+            "error": {
+                "title": "Error updating interview",
+                "description": "An error occurred while updating the interview."
+            }
+        }
+    },
+    "deleteInterviewDialog": {
+        "title": "Delete Interview",
+        "description": "Are you sure you want to delete the selected interview?",
+        "interviewTitle": "Interview Title",
+        "delete": "Delete",
+        "toast": {
+            "success": {
+                "title": "Interview deleted successfully",
+                "description": "The interview has been deleted successfully."
+            },
+            "error": {
+                "title": "Error deleting interview",
+                "description": "An error occurred while deleting the interview."
+            }
+        }
+    }
+}

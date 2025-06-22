@@ -22,6 +22,11 @@
     "latestInterviews": {
         "latestInterviews": "Latest Interviews",
         "viewAll": "View All",
+        "statusOptions": {
+            "pending": "Pending",
+            "completed": "Completed",
+            "absent": "Absent"
+        },
         "table": {
             "candidate": "Candidate",
             "status": "Status",

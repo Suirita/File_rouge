@@ -1,0 +1,139 @@
+{
+    "breadcrumbs": "Entretiens",
+    "title": "Entretiens",
+    "start": "Commencer un entretien",
+    "allCandidates": "Tous les candidats",
+    "searchCandidate": "Rechercher un candidat",
+    "noCandidateFound": "Aucun candidat trouvé",
+    "allTemplates": "Tous les modèles",
+    "filterTemplatePlaceholder": "Filtrer par modèle",
+    "allStatuses": "Tous les statuts",
+    "filterStatusPlaceholder": "Filtrer par statut",
+    "filterDatePlaceholder": "Filtrer par date",
+    "allDates": "Toutes les dates",
+    "clearFilters": "Effacer les filtres",
+    "import": "Importer des entretiens",
+    "export": "Exporter",
+    "add": "Ajouter un entretien",
+    "statusOptions": {
+        "pending": "En attente",
+        "completed": "Complété",
+        "absent": "Absent"
+    },
+    "table": {
+        "candidate": "Nom du candidat",
+        "template": "Titre du modèle",
+        "status": "Statut",
+        "score": "Note",
+        "date": "Date",
+        "actions": "Actions",
+        "actionsPopover": {
+            "view": "Voir",
+            "edit": "Modifier",
+            "delete": "Supprimer"
+        }
+    },
+    "noItems": "Aucun entretien trouvé",
+    "noItemsDescription": "Il n'y a aucun entretien à afficher.",
+    "startInterviewDialog": {
+        "title1": "Commencer un entretien",
+        "title2": "Entretien: ",
+        "description1": "Commencer un entretien en sélectionnant un candidat.",
+        "description2": "Noter chaque question et fournir des remarques",
+        "allCandidates": "Tous les candidats",
+        "searchCandidate": "Rechercher un candidat",
+        "noCandidateFound": "Aucun candidat trouvé",
+        "allTemplates": "Tous les modèles",
+        "filterTemplatePlaceholder": "Filtrer par modèle",
+        "selectCandidate": "Sélectionner un candidat",
+        "typeTitle": "Type: ",
+        "questionTitle": "Question: ",
+        "selected": "Sélectionné: ",
+        "remarks": "Remarques",
+        "submit": "Soumettre l'evaluation",
+        "toast": {
+            "success": {
+                "title": "Evaluation enregistrée avec succès",
+                "description": "L'évaluation a été enregistrée avec succès."
+            },
+            "error": {
+                "title": "Erreur lors de l'enregistrement de l'évaluation",
+                "description": "Une erreur s'est produite lors de l'enregistrement de l'évaluation."
+            }
+        }
+    },
+    "importInterviewPopover": {
+        "title": "Importer des entretiens",
+        "description": "Télécharger un fichier CSV contenant des entretiens.",
+        "file": "Fichier",
+        "import": "Importer",
+        "toast": {
+            "success": {
+                "title": "Entretiens importés avec succès",
+                "description": "Les entretiens ont été importés avec succès."
+            },
+            "error": {
+                "title": "Erreur lors de l'importation des entretiens",
+                "description": "Une erreur s'est produite lors de l'importation des entretiens."
+            }
+        }
+    },
+    "viewInterviewDialog": {
+        "overview": "Aperçu",
+        "evaluations": "Évaluations",
+        "score": "Note",
+        "questions": "questions",
+        "date": "Date",
+        "template": "Modèle",
+        "status": {
+            "pending": "En attente",
+            "completed": "Complété",
+            "absent": "Absent"
+        }
+    },
+    "editInterviewDialog": {
+        "title": "Modifier l'entretien",
+        "description": "Modifier les détails de l'entretien sélectionné.",
+        "status": "Statut",
+        "statusSelectPlaceholder": "Sélectionner un statut",
+        "statusSelectLabel": "Statut",
+        "template": "Modèle",
+        "templateSelectPlaceholder": "Sélectionner un modèle",
+        "templateSelectLabel": "Modèle",
+        "date": "Date",
+        "dateSelectPlaceholder": "Sélectionner une date",
+        "dateSelectLabel": "Date",
+        "edit": "Modifier",
+        "interviewSchema": {
+            "status": "Le statut est obligatoire",
+            "template": "Le modèle est obligatoire",
+            "date": "La date est obligatoire"
+        },
+        "toast": {
+            "success": {
+                "title": "Entretien mis à jour avec succès",
+                "description": "L'entretien a été mis à jour avec succès."
+            },
+            "error": {
+                "title": "Erreur lors de la mise à jour de l'entretien",
+                "description": "Une erreur s'est produite lors de la mise à jour de l'entretien."
+            }
+        }
+    },
+    "deleteInterviewDialog": {
+        "title": "Supprimer l'entretien",
+        "description": "Êtes-vous sûr de vouloir supprimer l'entretien sélectionné?",
+        "interviewTitle": "Titre de l'entretien",
+        "delete": "Supprimer",
+        "toast": {
+            "success": {
+                "title": "Entretien supprimé avec succès",
+                "description": "L'entretien a été supprimé avec succès."
+            },
+            "error": {
+                "title": "Erreur lors de la suppression de l'entretien",
+                "description": "Une erreur s'est produite lors de la suppression de l'entretien."
+            }
+        }
+    }
+}

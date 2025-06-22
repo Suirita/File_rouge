@@ -61,7 +61,6 @@
                 "max": "The title cannot exceed 20 characters"
             },
             "types": {
-                "arrayMin": "At least one type is required",
                 "min": "Types must be selected"
             }
         },
@@ -94,7 +93,6 @@
                     "max": "The title cannot exceed 20 characters"
                 },
                 "types": {
-                    "arrayMin": "At least one type is required",
                     "min": "Types must be selected"
                 }
             }

@@ -12,19 +12,19 @@ class EvaluatorSeeder extends Seeder
         $evaluators = [
             [
                 'name' => 'Alice Martin',
-                'user_id' => '2'
+                'user_id' => '1'
             ],
             [
                 'name' => 'Bob Dupont',
-                'user_id' => '3'
+                'user_id' => '2'
             ],
             [
                 'name' => 'Charlie Durand',
-                'user_id' => '4'
+                'user_id' => '3'
             ],
             [
                 'name' => 'Dana Leroy',
-                'user_id' => '5'
+                'user_id' => '4'
             ],
         ];
 

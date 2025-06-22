@@ -22,15 +22,15 @@ class TemplateRequest extends FormRequest
      */
     public function rules(): array
     {
-        $interview = $this->route('interview');
-        $interviewId = is_object($interview) ? $interview->id : $interview;
+        $template = $this->route('template');
+        $templateId = is_object($template) ? $template->id : $template;
 
         return [
             'title' => [
                 'required',
                 'string',
                 'max:255',
-                Rule::unique('interviews', 'title')->ignore($interviewId),
+                Rule::unique('templates', 'title')->ignore($templateId),
             ],
             'types' => 'required|array|min:1',
             'types.*' => 'required|integer|distinct',

@@ -273,9 +273,11 @@ const getAvgScore = (evaluations: { score: number }[]): string => {
               {{ $t('dashboard.latestInterviews.latestInterviews') }}
             </CardTitle>
           </div>
-          <Button class="text-primary-foreground" size="sm">
-            {{ $t('dashboard.latestInterviews.viewAll') }}
-            <ChevronRight class="h-3 w-3" />
+          <Button asChild size="sm" class="text-primary-foreground">
+            <a href="/dashboard/interview" class="flex items-center gap-1">
+              {{ t('dashboard.latestInterviews.viewAll') }}
+              <ChevronRight class="h-3 w-3" />
+            </a>
           </Button>
         </CardHeader>
         <CardContent>
@@ -304,13 +306,18 @@ const getAvgScore = (evaluations: { score: number }[]): string => {
               >
                 <TableCell class="font-medium">{{ interview.candidate.name }}</TableCell>
                 <TableCell class="text-center">
-                  <span class="rounded-full bg-green-500 px-2 py-1 text-xs font-medium">
-                    {{ interview.status }}
+                  <span
+                    :class="[
+                      'rounded-full px-2 py-1 text-xs font-medium',
+                      interview.status === 'completed' ? 'bg-blue-300' : 'bg-rose-400',
+                    ]"
+                  >
+                    {{ t(`dashboard.latestInterviews.statusOptions.${interview.status}`) }}
                   </span>
                 </TableCell>
-                <TableCell class="text-center font-medium">{{
-                  getAvgScore(interview.evaluations)
-                }}</TableCell>
+                <TableCell class="text-center font-medium">
+                  {{ getAvgScore(interview.evaluations) }}
+                </TableCell>
                 <TableCell class="text-right text-xs text-muted-foreground">
                   {{ formatDate(interview.date) }}
                 </TableCell>
