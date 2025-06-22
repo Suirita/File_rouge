@@ -61,8 +61,8 @@
                 "max": "Le titre ne doit pas dépasser 20 caractères"
             },
             "types": {
-                "arrayMin": "Au moins une type est requise",
-                "min": "Les types doivent être sélectionnées"
+                "min": "Les types doivent être sélectionnées",
+                "arrayMin": "Au moins une type est requise"
             }
         }
     },

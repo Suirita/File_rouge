@@ -2,7 +2,6 @@
 
 namespace Modules\Interview\app\Http\Requests;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ImportRequest extends FormRequest

@@ -138,9 +138,9 @@ const removeQuestion = (index: number) => {
     <DialogContent class="max-h-[600px] overflow-y-auto">
       <DialogHeader>
         <!-- Dialog title showing type title -->
-        <DialogTitle
-          >{{ t('question.editQuestionsDialog.title') }}: {{ props.type.title }}</DialogTitle
-        >
+        <DialogTitle>
+          {{ t('question.editQuestionsDialog.title') }}: {{ type?.title }}
+        </DialogTitle>
       </DialogHeader>
       <!-- Edit form -->
       <form @submit.prevent="editType" class="flex flex-col gap-6">

@@ -20,7 +20,7 @@ class QuestionsImport implements ToModel, WithHeadingRow, WithValidation
     {
         return [
             'type'      => 'required|string|max:255',
-            'questions' => 'nullable|string',
+            'questions' => 'required|string',
         ];
     }
 
@@ -31,6 +31,7 @@ class QuestionsImport implements ToModel, WithHeadingRow, WithValidation
     {
         return [
             'type.required' => 'Each row must have a non-empty type title.',
+            'questions.required' => 'Each row must have a non-empty questions string.',
         ];
     }
 
@@ -45,31 +46,25 @@ class QuestionsImport implements ToModel, WithHeadingRow, WithValidation
         return DB::transaction(function () use ($row) {
             // Trim and validate the “type” column again (just in case)
             $typeTitle = trim($row['type'] ?? '');
-            if ($typeTitle === '') {
-                return null; // Skip if somehow blank
-            }
 
             // Create or fetch an existing Type by title
             $type = Type::firstOrCreate(
                 ['title' => $typeTitle]
             );
 
-            // If there are comma-separated questions, attach them
-            if (!empty($row['questions'])) {
-                // Split on commas, trim each, filter out empties
-                $questionTitles = array_filter(
-                    array_map('trim', explode(',', $row['questions']))
-                );
+            // Split on commas, trim each, filter out empties
+            $questionTitles = array_filter(
+                array_map('trim', explode(',', $row['questions']))
+            );
 
-                foreach ($questionTitles as $questionTitle) {
-                    // For each question, firstOrCreate under this Type
-                    if ($questionTitle === '') {
-                        continue;
-                    }
-                    $type->questions()->firstOrCreate([
-                        'title' => $questionTitle,
-                    ]);
+            foreach ($questionTitles as $questionTitle) {
+                // For each question, firstOrCreate under this Type
+                if ($questionTitle === '') {
+                    continue;
                 }
+                $type->questions()->firstOrCreate([
+                    'title' => $questionTitle,
+                ]);
             }
 
             return $type;

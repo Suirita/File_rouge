@@ -217,16 +217,16 @@ function openDeleteQuestionsDialog(t: any) {
                       {{ t('question.table.actionsPopover.view') }}
                     </button>
                     <button
+                      v-if="type.canModify"
                       class="w-full rounded-md px-3 py-2 text-left hover:bg-gray-100"
                       @click="openEditQuestionsDialog(type)"
-                      :disabled="!type.canModify"
                     >
                       {{ t('question.table.actionsPopover.edit') }}
                     </button>
                     <button
+                      v-if="type.canModify"
                       class="w-full rounded-md px-3 py-2 text-left text-red-600 hover:bg-red-100"
                       @click="openDeleteQuestionsDialog(type)"
-                      :disabled="!type.canModify"
                     >
                       {{ t('question.table.actionsPopover.delete') }}
                     </button>

@@ -22,6 +22,11 @@
     "latestInterviews": {
         "latestInterviews": "Derniers Entretien",
         "viewAll": "Voir Tous",
+        "statusOptions": {
+            "pending": "En Attente",
+            "completed": "Complété",
+            "absent": "Absent"
+        },
         "table": {
             "candidate": "Inscrite",
             "status": "Statut",

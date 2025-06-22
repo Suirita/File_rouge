@@ -1,12 +1,12 @@
 {
     "breadcrumbs": {
-        "questions": "Questions"
+        "questions": "Types de questions"
     },
-    "title": "Questions",
+    "title": "Types de questions",
     "searchPlaceholder": "Rechercher by Types",
-    "add": "Ajouter des questions",
-    "import": "Importer des questions",
-    "export": "Exporter des questions",
+    "add": "Ajouter des types",
+    "import": "Importer des types",
+    "export": "Exporter des types",
     "table": {
         "type": "Types",
         "questions": "Questions",
@@ -18,36 +18,36 @@
         }
     },
     "noTypes": "Aucune type trouvée",
-    "noTypesDescription": "Vous pouvez créer de nouvelles questions en cliquant sur le bouton « Ajouter des questions »",
+    "noTypesDescription": "Vous pouvez créer de nouvelles types en cliquant sur le bouton « Ajouter de type »",
     "importTypePopover": {
-        "title": "Importer des questions",
-        "description": "Importer des questions à partir d'un fichier",
+        "title": "Importer des type",
+        "description": "Importer des types à partir d'un fichier",
         "file": "Fichier",
         "import": "Importer",
         "toast": {
             "success": {
-                "title": "Questions importées avec succès",
-                "description": "Les questions ont été importées avec succès"
+                "title": "types importées avec succès",
+                "description": "Les types ont été importées avec succès"
             },
             "error": {
-                "title": "Erreur lors de l'importation des questions",
-                "description": "Une erreur s'est produite lors de l'importation des questions"
+                "title": "Erreur lors de l'importation des types",
+                "description": "Une erreur s'est produite lors de l'importation des types"
             }
         }
     },
     "createQuestionsDialog": {
-        "title": "Créer des questions",
+        "title": "Créer des type",
         "type": "Type",
         "questions": "Questions",
         "add": "Ajouter",
         "toast": {
             "success": {
-                "title": "Questions ajoutées avec succès",
-                "description": "Les questions ont été ajoutées avec succès"
+                "title": "type ajoutées avec succès",
+                "description": "Le type ont été ajoutées avec succès"
             },
             "error": {
-                "title": "Erreur lors de l'ajout de questions",
-                "description": "Une erreur s'est produite lors de l'ajout de questions"
+                "title": "Erreur lors de l'ajout de type",
+                "description": "Une erreur s'est produite lors de l'ajout de type"
             }
         },
         "questionSchema": {
@@ -62,23 +62,23 @@
         }
     },
     "viewQuestionsDialog": {
-        "title": "Voir les questions de type",
+        "title": "Voir le type",
         "questions": "Les questions",
         "noQuestions": "Aucune question trouvée"
     },
     "editQuestionsDialog": {
-        "title": "Modifier les questions de type",
+        "title": "Modifier le type",
         "type": "Type",
         "questions": "Questions",
         "edit": "Modifier",
         "toast": {
             "success": {
                 "title": "Type modifiée avec succès",
-                "description": "La type a été modifiée avec succès"
+                "description": "Le type a été modifiée avec succès"
             },
             "error": {
-                "title": "Erreur lors de la modification de questions",
-                "description": "Une erreur s'est produite lors de la modification de questions"
+                "title": "Erreur lors de la modification de type",
+                "description": "Une erreur s'est produite lors de la modification de type"
             }
         },
         "questionSchema": {
@@ -93,17 +93,17 @@
         }
     },
     "deleteQuestionsDialog": {
-        "title": "Supprimer des questions",
-        "description": "Êtes-vous sûr de vouloir supprimer ces questions?",
+        "title": "Supprimer le type",
+        "description": "Êtes-vous sûr de vouloir supprimer ce type?",
         "delete": "Supprimer",
         "toast": {
             "success": {
-                "title": "Questions supprimées avec succès",
-                "description": "Les questions ont été supprimées avec succès"
+                "title": "type supprimées avec succès",
+                "description": "Le type ont été supprimées avec succès"
             },
             "error": {
-                "title": "Erreur lors de la suppression des questions",
-                "description": "Une erreur s'est produite lors de la suppression des questions"
+                "title": "Erreur lors de la suppression du type",
+                "description": "Une erreur s'est produite lors de la suppression du type"
             }
         }
     }

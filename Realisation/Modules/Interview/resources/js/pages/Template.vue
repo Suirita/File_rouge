@@ -229,16 +229,16 @@ function openDeleteDialog(item: any) {
                       {{ t('template.table.actionsPopover.view') }}
                     </button>
                     <button
+                      v-if="i.canModify"
                       @click="openEditDialog(i)"
                       class="w-full rounded px-3 py-2 text-left hover:bg-gray-100"
-                      :disabled="!i.canModify"
                     >
                       {{ t('template.table.actionsPopover.edit') }}
                     </button>
                     <button
+                      v-if="i.canModify"
                       @click="openDeleteDialog(i)"
                       class="w-full rounded px-3 py-2 text-left text-red-600 hover:bg-red-100"
-                      :disabled="!i.canModify"
                     >
                       {{ t('template.table.actionsPopover.delete') }}
                     </button>

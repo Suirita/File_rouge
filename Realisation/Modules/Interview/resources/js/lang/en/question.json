@@ -1,12 +1,12 @@
 {
     "breadcrumbs": {
-        "questions": "Questions"
+        "questions": "Types of questions"
     },
-    "title": "Questions",
+    "title": "Types of questions",
     "searchPlaceholder": "Search per types",
-    "add": "Add questions",
-    "import": "Import questions",
-    "export": "Export questions",
+    "add": "Add type",
+    "import": "Import types",
+    "export": "Export types",
     "table": {
         "type": "Types",
         "questions": "Questions",
@@ -18,36 +18,36 @@
         }
     },
     "noTypes": "No types found",
-    "noTypesDescription": "You can create a new questions by clicking the 'Add questions' button",
+    "noTypesDescription": "You can create a new questions by clicking the 'Add type' button",
     "importQuestionsPopover": {
-        "title": "Import questions",
-        "description": "Import questions from a file",
+        "title": "Import types",
+        "description": "Import types from a file",
         "file": "File",
         "import": "Import",
         "toast": {
             "success": {
-                "title": "Questions imported successfully",
-                "description": "The questions have been imported successfully"
+                "title": "Types imported successfully",
+                "description": "The types have been imported successfully"
             },
             "error": {
-                "title": "Error importing questions",
-                "description": "An error occurred while importing the questions"
+                "title": "Error importing types",
+                "description": "An error occurred while importing the types"
             }
         }
     },
     "createQuestionsDialog": {
-        "title": "Create a questions",
+        "title": "Create a type",
         "type": "Type",
         "questions": "Questions",
         "add": "Add",
         "toast": {
             "success": {
-                "title": "Questions added successfully",
-                "description": "The questions has been added successfully"
+                "title": "Type added successfully",
+                "description": "The type has been added successfully"
             },
             "error": {
-                "title": "Error adding questions",
-                "description": "An error occurred while adding the questions"
+                "title": "Error adding type",
+                "description": "An error occurred while adding the type"
             }
         },
         "questionSchema": {
@@ -62,23 +62,23 @@
         }
     },
     "viewQuestionsDialog": {
-        "title": "View questions of type",
+        "title": "View type",
         "questions": "Questions",
         "noQuestions": "No questions found"
     },
     "editQuestionsDialog": {
-        "title": "Edit questions of type",
+        "title": "Edit type",
         "type": "Type",
         "questions": "Questions",
         "edit": "Edit",
         "toast": {
             "success": {
-                "title": "Questions edited successfully",
-                "description": "The questions have been edited successfully"
+                "title": "Type edited successfully",
+                "description": "The type has been edited successfully"
             },
             "error": {
-                "title": "Error editing questions",
-                "description": "An error occurred while editing the questions"
+                "title": "Error editing type",
+                "description": "An error occurred while editing the type"
             }
         },
         "questionSchema": {
@@ -93,17 +93,17 @@
         }
     },
     "deleteQuestionsDialog": {
-        "title": "Delete questions",
-        "description": "Are you sure you want to delete these questions?",
+        "title": "Delete type",
+        "description": "Are you sure you want to delete this type?",
         "delete": "Delete",
         "toast": {
             "success": {
-                "title": "Questions deleted successfully",
-                "description": "The questions have been deleted successfully"
+                "title": "Type deleted successfully",
+                "description": "The type has been deleted successfully"
             },
             "error": {
-                "title": "Error deleting questions",
-                "description": "An error occurred while deleting the questions"
+                "title": "Error deleting type",
+                "description": "An error occurred while deleting the type"
             }
         }
     }

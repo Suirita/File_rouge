@@ -14,14 +14,14 @@ class CoreDatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        Role::create(['name' => 'admin']);
+        // Role::create(['name' => 'admin']);
 
-        $adminUser = User::create([
-            'name' => 'Fahd Suirita',
-            'email' => 'fahd.suirita123@gmail.com',
-            'password' => 'fahdsuirita26092004',
-        ]);
-        $adminUser->assignRole('admin');
+        // $adminUser = User::create([
+        //     'name' => 'Fahd Suirita',
+        //     'email' => 'fahd.suirita123@gmail.com',
+        //     'password' => 'fahdsuirita26092004',
+        // ]);
+        // $adminUser->assignRole('admin');
 
 
         Role::create(['name' => 'evaluator']);
