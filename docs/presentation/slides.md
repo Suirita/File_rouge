@@ -134,19 +134,29 @@
 
 #### **6.1. Technologiques utilisées:**
 
-![Technologiques](../assets/img/Technologiques.png) 
+![Technologiques](../assets/img/Technologiques.jpg)
 
 |||
 
 #### **6.2. Sprint 1:**
 
+![Sprint 1](../assets/img/Realisation_sprint_1.png)
+
 |||
 
 #### **6.3. Sprint 2:**
 
+![Sprint 2 A](../assets/img/Realisation_sprint_2_A.png)
+
+|||
+
+![Sprint 2 B](../assets/img/Realisation_sprint_2_B.png)
+
 |||
 
 #### **6.4. Sprint 3:**
+
+![Sprint 3](../assets/img/Realisation_sprint_3.png)
 
 ---
 
