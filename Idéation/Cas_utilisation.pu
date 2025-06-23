@@ -6,10 +6,11 @@ actor "Responsable des Stagiaires" as rs
 
 rectangle EntretienInscription {
   usecase "Voir les analyses" as UC1
-  usecase "CRUD Modèles de entretiens" as UC3
-  usecase "CRUD Type des questions" as UC4
+  usecase "CRUD Modèles des entretiens" as UC2
+  usecase "CRUD Type des questions" as UC3
   usecase "CRUD Questiones" as UC4
   usecase "CRUD Entretiens" as UC5
+  usecase "Evaluer un inscrit" as UC6
 }
 
 fr -- UC1
@@ -23,4 +24,5 @@ rs -- UC3
 rs -- UC5
 
 UC3 <.. UC4 : <<extends>>
+UC5 <.. UC6 : <<extends>>
 @enduml

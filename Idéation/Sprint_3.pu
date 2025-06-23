@@ -4,9 +4,12 @@ actor "Formateur" as fr
 actor "Responsable des Stagiaires" as rs
 rectangle EntretienInscription {
   usecase "CRUD Entretiens" as UC1
+  usecase "Evaluer un inscrit" as UC2
 }
 
 fr -- UC1
 
 rs -- UC1
+
+UC1 <.. UC2 : <<extends>>
 @enduml
