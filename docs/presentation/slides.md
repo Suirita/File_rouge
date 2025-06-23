@@ -146,11 +146,11 @@
 
 #### **6.3. Sprint 2:**
 
-![Sprint 2 A](../assets/img/Realisation_sprint_2_A.png)
+![Sprint 2](../assets/img/Realisation_sprint_2_A.png)
 
 |||
 
-![Sprint 2 B](../assets/img/Realisation_sprint_2_B.png)
+![Sprint 2](../assets/img/Realisation_sprint_2_B.png)
 
 |||
 
